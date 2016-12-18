@@ -1,0 +1,727 @@
+<?xml version="1.0"?>
+<PluginConfig>
+  <Field
+    id = "infoLabel00" 
+    type = "label" 
+    fontSize = "large">
+    <Label>WUnderstation Plugin</Label>
+  </Field>
+
+  <Field
+    id = "space00" 
+    type = "label" 
+    fontSize = "small">
+    <Label>Developed by DaveL17</Label>
+  </Field>
+
+  <Field
+    id = "separator00" 
+    type = "separator"/>
+
+  <Field
+    id = "wunderstationID" 
+    type = "textfield" 
+    defaultValue = "" 
+    tooltip = "Please enter your ID as registered by wunderground.com.">
+    <Label>Station ID (PWS):</Label>
+  </Field>
+
+  <Field
+    id = "wunderstationPassword" 
+    type = "textfield" 
+    defaultValue = "" 
+    tooltip = "Please enter your password as registered by wunderground.com.">
+    <Label>Password:</Label>
+  </Field>
+
+  <Field
+    id = "uploadInterval" 
+    type = "textfield"
+    defaultValue = "900" 
+    tooltip = "Please select the desired frequency for data uploads.">
+    <Label>Upload Frequency (seconds):</Label>
+  </Field>
+
+  <Field
+    id = "separator01" 
+    type = "separator"/>
+
+  <Field
+    id = "space03" 
+    type = "label">
+    <Label>Receive an email alerting you to plugin updates:</Label>
+  </Field>
+
+  <Field
+    id = "updaterEmailsEnabled" 
+    type = "checkbox" 
+    defaultValue = "false" 
+    tooltip  =  "Enables (disables) email notifications.">
+    <Label>Enable/Disable:</Label>
+    <Description> </Description>
+  </Field>
+
+  <Field
+    id = "updaterEmail" 
+    type = "textfield" 
+    tooltip = "Please enter the email address to receive notifications of updates to the plugin.">
+    <Label>Email address:</Label>
+  </Field>
+
+  <Field
+    id = "separator02" 
+    type = "separator"/>
+
+  <Field
+    id = "showDebugInfo" 
+    type = "checkbox" 
+    tooltip = "Enabling will result in verbose logging.">
+    <Label>Debugging:</Label>
+    <Description>Enable/Disable</Description>
+  </Field>
+  
+  <Field
+    id = "showDebugLevel" 
+    type = "menu" 
+    defaultValue = "1"
+    tooltip = "Controls the amount of debug information written to the log.">
+    <Label>Debug level:</Label>
+    <Description>Enable/Disable</Description>
+    <List>
+      <Option value = "1">Low</Option>
+      <Option value = "2">Medium</Option>
+      <Option value = "3">High</Option>
+    </List>
+  </Field>
+
+  <Field
+    id = "separator03" 
+    type = "separator"/>
+
+  <Field
+    id = "space06" 
+    type = "checkbox">
+    <Label>Weather Data:</Label>
+    <Description>Show/Hide</Description>
+  </Field>
+
+<!-- * for extra outdoor sensors use temp2f, temp3f, and so on -->
+  <Field
+    id = "tempf1" 
+    type = "menu" 
+    defaultValue = "None" 
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F outdoor temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Outdoor Temperature 1 (F)</Label>
+  </Field>
+
+  <Field
+    id = "tempf2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F outdoor temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Outdoor Temperature 2 (F)</Label>
+  </Field>
+
+  <Field
+    id = "tempf3"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F outdoor temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Outdoor Temperature 3 (F)</Label>
+  </Field>
+
+  <Field
+    id = "tempf4"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F outdoor temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Outdoor Temperature 4 (F)</Label>
+  </Field>
+
+  <Field
+    id = "indoortempf"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F indoor temperature F]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Indoor Temperature (F)</Label>
+  </Field>
+
+  <Field
+    id = "humidity"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent outdoor humidity 0-100%]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Outdoor Humidity (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "indoorhumidity"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent indoor humidity 0-100]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Indoor Humidity (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "baromin"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[barometric pressure inches]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Barometric Pressure (Inches)</Label>
+  </Field>
+
+  <Field
+    id = "dewptf"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F outdoor dewpoint F]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Dewpoint (F)</Label>
+  </Field>
+
+  <Field
+    id = "rainin"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[rain inches over the past hour]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Rain Last Hour (Inches)</Label>
+  </Field>
+
+  <Field
+    id = "dailyrainin"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[rain inches so far today in local time]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Rain Today (Inches)</Label>
+  </Field>
+
+  <Field
+    id = "separator04"
+    type = "separator"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"/>
+
+<!-- * for sensors 2,3,4 use soiltemp2f, soiltemp3f, and soiltemp4f -->
+  <Field
+    id = "soiltempf1"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F soil temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Temperature 1 (F)</Label>
+  </Field>
+
+  <Field
+    id = "soiltempf2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F soil temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Temperature 2 (F)</Label>
+  </Field>
+
+  <Field
+    id = "soiltempf3"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F soil temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Temperature 3 (F)</Label>
+  </Field>
+
+  <Field
+    id = "soiltempf4"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[F soil temperature]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Temperature 4 (F)</Label>
+  </Field>
+
+<!-- * for sensors 2,3,4 use soilmoisture2, soilmoisture3, and soilmoisture4 -->
+  <Field
+    id = "soilmoisture1"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Moisture 1 (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "soilmoisture2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Moisture 2 (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "soilmoisture3"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Moisture 3 (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "soilmoisture4"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Soil Moisture 4 (0% - 100%)</Label>
+  </Field>
+
+<!-- + for sensor 2 use leafwetness2 -->
+  <Field
+    id = "leafwetness1"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Leaf Wetness 1 (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "leafwetness2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Percent]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Leaf Wetness 2 (0% - 100%)</Label>
+  </Field>
+
+  <Field
+    id = "separator05"
+    type = "separator"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"/>
+
+  <Field
+    id = "weather"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[metar style (+RA)]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Weather (Text)</Label>
+  </Field>
+
+  <Field
+    id = "clouds"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Text - SKC, FEW, SCT, BKN, OVC]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Clouds (Text)</Label>
+  </Field>
+
+  <Field
+    id = "solarradiation"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[W/m^2]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Solar Radiation</Label>
+  </Field>
+
+  <Field
+    id = "UV"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[Index]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>UV (Index)</Label>
+  </Field>
+
+  <Field
+    id = "visibility"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[nautical miles visibility]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Visibility (Nautical Miles)</Label>
+  </Field>
+
+  <Field
+    id = "separator07"
+    type = "separator"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"/>
+
+  <Field
+    id = "windspeedmph"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[mph instantaneous wind speed]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Speed (MPH)</Label>
+  </Field>
+
+  <Field
+    id = "winddir"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[0-360 instantaneous wind direction]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Direction (0-360)</Label>
+  </Field>
+
+  <Field
+    id = "windgustmph"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[mph current wind gust, using software specific time period]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Gust Speed (MPH)</Label>
+  </Field>
+
+  <Field
+    id = "windgustdir"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[0-360 using software specific time period]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Gust Direction (0-360)</Label>
+  </Field>
+
+  <Field
+    id = "windspdmph_avg2m"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[mph 2 minute average wind speed mph]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Speed (MPH/Avg. 2 min.)</Label>
+  </Field>
+
+  <Field
+    id = "winddir_avg2m"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[0-360 2 minute average wind direction]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Direction (0-360/Avg. 2 min.)</Label>
+  </Field>
+
+  <Field
+    id = "windgustmph_10m"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[mph past 10 minutes wind gust mph]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Gust (MPH/Avg. 10 min.)</Label>
+  </Field>
+
+  <Field
+    id = "windgustdir_10m"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"
+    tooltip = "[0-360 past 10 minutes wind gust direction]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Wind Direction (0-360/Avg. 10 min.)</Label>
+  </Field>
+
+  <Field
+    id = "separator08"
+    type = "separator"
+    visibleBindingId = "space06"
+    visibleBindingValue = "true"/>
+
+<!-- Air quality measures, hidden by default. -->
+  <Field
+    id = "space09"
+    type = "checkbox">
+    <Label>Air Quality Data:</Label>
+    <Description>Show/Hide</Description>
+  </Field>
+
+  <Field
+    id = "AqUV-AETH"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Aethalometer (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqBC"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "BC (black carbon at 880 nm) UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Carbon - Black (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqEC"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "EC (elemental carbon) – PM2.5 UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Carbon - Elemental (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqOC"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Carbon - Organic (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqCO"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "CO (carbon monoxide), conventional ppm">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Carbon Monoxide (PPM)</Label>
+  </Field>
+
+  <Field
+    id = "AqCOT"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "CO trace levels PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Carbon Monoxide (PPB Trace)</Label>
+  </Field>
+
+  <Field
+    id = "AqNO"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "[ NO (nitric oxide) PPB ]">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitric Oxide (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNO2T"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "(nitrogen dioxide), true measure PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitrogen Dioxide (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNO2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "NO2 computed, NOx-NO PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitrogen Dioxide (NOx-NO PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNO2Y"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "NO2 computed, NOy-NO PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitrogen Dioxide (NOy-NO PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNOX"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "NOx (nitrogen oxides) - PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitrogen Oxides (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNOY"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "NOy (total reactive nitrogen) - PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Nitrogen - Total Reactive (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqNO3"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>NO3 Ion (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqOZONE"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "Ozone - PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Ozone (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqPM2.5"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "PM2.5 mass - UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>PM2.5 Mass (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqPM10"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "PM10 mass - PM10 mass">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>PM10 Mass</Label>
+  </Field>
+
+  <Field
+    id = "AqSO4"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>S04 Ion (UG/M3)</Label>
+  </Field>
+
+  <Field
+    id = "AqSO2"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "(sulfur dioxide), conventional PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Sulfur Dioxide (PPB)</Label>
+  </Field>
+
+  <Field
+    id = "AqSO2T"
+    type = "menu"
+    defaultValue = "None"
+    visibleBindingId = "space09"
+    visibleBindingValue = "true"
+    tooltip = "trace levels PPB">
+    <List class = "indigo.variables" filter = "" method = "varListGenerator"/>
+    <Label>Sulfur Dioxide (PPB Trace)</Label>
+  </Field>
+
+</PluginConfig>

@@ -1,0 +1,43 @@
+WUnderstation Indigo Plugin - Developed by: DaveL17
+
+v1.0.01
+- Moves project to GitHub and provides some general housekeeping.
+
+v0.2.03
+- Updates string substitution method for future functionality.
+- Updates error trapping for future functionality.
+
+v0.2.02
+- Ensures that devices are not restarted unecessarily.
+- Adds error message screens to plugin configuration dialog.
+- Adds plugin version number to identifier sent to WU.
+- Reverts back to urllib2 and socket.
+- Fixes bug where loading the plugin configuration dialog
+  could cause some other plugins to quit unexpectedly.
+
+v0.2.01
+- Moves plugin to use subprocess.popen() method over urllib2 and socket.
+- Production release.
+- Code Maintenance
+
+v0.1.03
+- Increases compliance with PEP8.
+- Fixes bug in air quality variable 'PM10 mass'.
+
+v0.1.02
+- Full support for unicode text.
+- Refines URL constructor.
+- Reduces code footprint with respect to data parsing.
+- Adds menu item to check for plugin update.
+- Adds menu item to toggle debugging mode (on/off).
+- Fixes "About WUnderstation" link in menu.
+
+v0.1.01
+- Code refinements (20 percent fewer lines of code.)
+- Fixes bug in refresh interval where (under certain circumstances) the interval was
+  doubled.
+- Fixes bug in URL parameters for multiple-sensor values (temperature, soil temperature, 
+  soil moisture, leaf wetness.)
+
+v0.1.0
+- Initial Release.
