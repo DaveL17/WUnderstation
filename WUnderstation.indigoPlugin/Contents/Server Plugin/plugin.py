@@ -54,7 +54,7 @@ class Plugin(indigo.PluginBase):
 
         self.debug                = self.pluginPrefs.get('showDebugInfo', False)
         self.debugLevel           = int(self.pluginPrefs.get('showDebugLevel', "1"))
-        updater_url               = 'https://dl.dropboxusercontent.com/u/2796881/wunderstation.html'
+        updater_url               = 'https://davel17.github.io/WUnderstation/wunderstation.html'
         self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
         self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
         self.updaterEmailsEnabled = self.pluginPrefs.get('updaterEmailsEnabled', "false")
