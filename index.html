@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="fogbert.css">
     <meta charset="UTF-8">
     <title>Wunderstation Plugin for Indigo Home Control Server</title>
 </head>
 <body>
-<p>Hello world.  More to come.</p>
+    <p>
+        <div style="text-align: center"><img src="wunderstationLogo.png"></div>
+        <h1>About</h1>
+        <p>The WUnderstation plugin allows users to upload Personal Weather Station (PWS) weather data to Weather Underground using their Indigo Home Control Server.
+            <br><br><a href="https://github.com/DaveL17/BikeShare/releases">[ DOWNLOAD ]</a></p>
+
+        <h3>Installation</h3>
+            <img class="TextWrap" src="pluginConfigDialog.png">
+            <p>Installation is easy. Download and extract the Indigo Plugin file onto your Indigo server machine. Double-click the plugin file and follow the prompts. Presently, the
+                plugin does not make use of any Indigo devices; all controls and data sources are managed through the plugin configuration dialog. The plugin supports only one PWS location at a time; the operation of the plugin is very simple.
+                <ol>
+                <li>Within the plugin preferences, enter the PWS information and password for your PWS account.
+                <li>Enter the frequency of updates (in seconds)
+                <li>Select the data sources that you want to use for each Weather Underground data element--there are about 50 to choose from.
+                </ol>
+            <p>It is important to note that <strong><em>you are responsible for the data you upload to Weather Underground</em></strong>. For example, it's possible that you could report the brightness of a
+                light as the outside temperature. So be careful and choose wisely.</p>
+        <h3>Devices</h3>
+            <p>There are presently no Indigo devices associated with this plugin.
+                <ul>
+                <li>None
+                </ul>
+        <h3>Actions</h3>
+            <p>There are presently no Indigo actions associated with this plugin.
+                <ul>
+                <li>None
+                </ul>
+        <h3>Menu Items</h3>
+            <p>There are a couple Indigo menu items associated with this plugin.
+                <ul>
+                <li><em>Check for Plugin Updates...</em> Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function
+                    properly you must configure plugin update notifications within the plugin configuration dialog window.
+                <li><em>Toggle Debugging</em> Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the
+                    plugin configuration dialog window.
+                </ul>
 </body>
 </html>
