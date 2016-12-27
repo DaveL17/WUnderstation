@@ -6,115 +6,138 @@
     <title>Wunderstation Plugin for Indigo Home Control Server</title>
 </head>
 <body>
-        <div style="text-align: center"><img src="img_wunderstationLogo.png"></div>
+<div style="text-align: center"><img src="img_wunderstationLogo.png"></div>
 
-        <nav>
-            <a href="https://github.com/DaveL17/Wunderstation/releases"><img src="img_download.png"></a>
-            <a href="http://forums.indigodomo.com/viewforum.php?f=175"><img src="img_forum.png"></a>
-            <a href="https://github.com/DaveL17/WUnderstation/wiki"><img src="img_wiki.png"></a>
-        </nav>
+<nav>
+    <a href="https://github.com/DaveL17/Wunderstation/releases"><img src="img_download.png"></a>
+    <a href="http://forums.indigodomo.com/viewforum.php?f=175"><img src="img_forum.png"></a>
+    <a href="https://github.com/DaveL17/WUnderstation/wiki"><img src="img_wiki.png"></a>
+</nav>
 
-        <h1>About</h1>
-        <p>The WUnderstation Plugin for the Indigo Home Control Server (Indigo) is used to provide a bridge between Indigo and the Weather Underground Personal Weather Station network
-            data system.</p>
+<h1>About</h1>
+<p>The WUnderstation Plugin for the Indigo Home Control Server (Indigo) is used to provide a bridge between Indigo and the Weather Underground Personal Weather Station network
+    data system.</p>
 
-        <h3>Installation</h3>
-            <img class="TextWrap" src="img_pluginConfigDialog.png">
-            <p>Installing the WUnderstation Plugin is accomplished in the same way that you would install other Indigo plugins. There are no additional steps or other Python packages
-                that need to be installed. From the computer where the Indigo Server resides (you can’t directly install plugins from a client machine), download the current plugin
-                archive from the Indigo File Library and then double-click on the archive file. Indigo will prompt you to install the plugin. Once the plugin has been successfully
-                installed, you will need to configure the plugin to work with your desired implementation. During installation, Indigo should present you with the Plugin Configuration
-                dialog. If for some reason that doesn’t happen, or if you want to make additional changes later, you can always get to the Plugin Configuration dialog by going to the
-                Indigo main menu and selecting Plugins —> WUnderstation —> Configure…
-            <p>All settings that affect the plugin’s overall operations are found in the Plugin Configuration dialog. The settings are divided into four sections: Plugin Settings,
-                Update Notification Settings, Debug Settings and Data Upload Settings. There is a fair bit of stuff that is happening behind the scenes when you choose to open the
-                plugin configuration menu. You may even see a beach ball briefly—this is normal. Please be patient and try not to force something to happen. Are you ready to look at
-                the settings?  Good. Then we’ll begin.</p>
-            <p>Plugin Settings - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the Station ID,
-                Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and
-                enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
-                value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.</p>
-            <p>Update Notifications - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications, check the
-                appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not
-                send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.</p>
-            <p>Debugging - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the output is
-                tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a
-                lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A
-                setting of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.</p>
-            <p>That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we
-                must select the data that we want to upload.</p>
-            <p>Data Upload Settings - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a
-                variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable
-                names with “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready
-                to move on to the next step.</p>
-            <p>There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories
-                within the plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables.
-                Simply select the PWS value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you
-                select—in other words, if you select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in
-                this regard so please choose wisely. There are more variables than can easily be shown with a simple screenshot, but I’ll highlight a few points below that are of
-                particular note:
-                <ul>
-                <li><em>Weather Data</em> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
-                         temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. Always populate
-                         Outdoor Temperature 1 before populating Outdoor Temperature 2.</li>
-                <li><em>Air Quality Data</em> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That
-                         said, the plugin is completely agnostic about this and supports all available fields.</li>
-                </ul>
+<p>Highlights:
+    <ul>
+        <li>Easily create visually appealing charts for Indigo control pages.</li>
+        <li>Seamlessly manage attributes like color, fonts, sizes (and more!) for all charts at once.</li>
+        <li>Customize individual charts with markers, annotations, minimums and maximums, and user-defined constants.</li>
+        <li>Chart types Include: Line Charts, Bar Charts, Polar Charts, Multiline Text Charts, and WUnderground Plugin Charts.</li>
+        <li>Chart data that is created with the plugin, or incorporate your own (CSV).</li>
+        <li>Charts update automatically.
+    </ul>
+</li>
 
-            <p><img class="TextWrapLeft" src="img_bangButton.png"> <br>It is important to note that <strong><em>you are responsible for the data you upload to Weather Underground</em></strong>. For example, it's possible that you could
-                report the brightness of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that is obtained from another service. In other
-                words, don’t take data from your national weather bureau and upload it as your own. Please use the plugin to upload only data that you have generated through sensors,
-                math, and personal weather stations. Uploading others’ data is completely and totally uncool.</p>
-        <h3>Framework</h3>
-            <p>The framework of the entire environment as it relates to Indigo is very straightforward. Indigo talks through the plugin to the Weather Underground (WU) servers to allow
-                users to upload data from their Indigo installations to the Weather Underground Personal Weather Station (PWS) network. Communication is bi-directional (but only
-                slightly), and presently happens through routine calls using common Python communication protocols. Plugin users choose a predefined upload interval through a standard
-                plugin configuration setting, the plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack
-                thereof.)</p>
-            <p>This plugin is designed to work with Indigo 6.0 and above and is therefore compatible with Python 2.6. I will do my best to account for other implementations where
-                possible, but sometimes I will not be able to do that when it would cause a loss of functionality or break existing frameworks. I will also work to continue to keep the
-                plugin current as Indigo, its Python implementation and WU API evolve over time.</p>
-        <h3>Devices</h3>
-                <ul>
-                <li>None
-                </ul>
-        <h3>Actions</h3>
-                <ul>
-                <li>None
-                </ul>
-        <h3>Menu Items</h3>
-            <p>There are a couple Indigo menu items associated with this plugin.
-                <ul>
-                <li><em>Check for Plugin Updates</em> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function
-                    properly you must configure plugin update notifications within the plugin configuration dialog window.
-                <li><em>Toggle Debugging</em> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the
-                    plugin configuration dialog window.
-                </ul>
-        <h3>Scripting and Technical Details</h3>
-            <p>Under construction.
-                <ul>
-                <li><em>com.fogbert.indigoplugin.wunderstation</em>
-                </ul>
-        <h3>Requesting Features and Reporting Bugs</h3>
-        <p>The best way to request features and to report undocumented features (bugs) is via the Indigo Forums. An alternative is to send me a Private Message via the Indigo Forums—
-            which is, in fact, the preferred way if your debug output contains sensitive information like your username, password and user email address. When reporting bugs, it’s best
-            to include the following information:
-            <ol>
-            <li>What version of the plugin you’re using,</li>
-            <li>What version of Indigo you’re using,</li>
-            <li>Relevant error message text (be sure to provide the full text of the error you’re seeing, and</li>
-            <li>A version of the debug log showing what was happening when the error occurred.</li>
-        </ol>
-        <p>I will do my best to help you use the plugin, but I can only commit to providing support for the plugin itself; I can not commit to providing support for difficulties
-            accessing the WU site, the accuracy of your data or other concerns external to the plugin. That said, the best way to seek support for the WUnderstation Plugin is to post
-            to the WUnderstation Indigo Forum or send me a Private Message via the forum site. I would suggest that you post questions to the forum as other users may be able to help
-            where I may be unable to and benefit from answers provided.</p>
-    <footer>
-      <p>The WUnderstation Plugin is a third-party plugin for Indigo. Indigo Domotics—other than providing invaluable technical support and an absolutely fantastic product—have nothing
-          to do with the format, function, or results that this plugin provides. Likewise, Weather Underground, LLC—provider of the service, and also a fantastic product—have
-          nothing to do with the format, function, or results that this plugin provides. I am not affiliated with either company, but remain a very satisfied and loyal customer to both.
-          There are no warranties, either expressed or implied, that come with using this software. While I have done my best to make a quality product, and will endeavor to fix any and
-          all problems when they’re identified, I can’t guarantee that this plugin will be trouble-free. Therefore, please do use the plugin, but use at your own risk.</p>
-    </footer>
+<h3>Installation</h3>
+<img class="TextWrap" src="img_pluginConfigDialog.png">
+<p>Installing the WUnderstation Plugin is accomplished in the same way that you would install other Indigo plugins. There are no additional steps or other Python packages
+    that need to be installed. From the computer where the Indigo Server resides (you can’t directly install plugins from a client machine), download the current plugin
+    archive from the Indigo File Library and then double-click on the archive file. Indigo will prompt you to install the plugin. Once the plugin has been successfully
+    installed, you will need to configure the plugin to work with your desired implementation. During installation, Indigo should present you with the Plugin Configuration
+    dialog. If for some reason that doesn’t happen, or if you want to make additional changes later, you can always get to the Plugin Configuration dialog by going to the
+    Indigo main menu and selecting Plugins —> WUnderstation —> Configure…
+<p>All settings that affect the plugin’s overall operations are found in the Plugin Configuration dialog. The settings are divided into four sections: Plugin Settings,
+    Update Notification Settings, Debug Settings and Data Upload Settings. There is a fair bit of stuff that is happening behind the scenes when you choose to open the
+    plugin configuration menu. You may even see a beach ball briefly—this is normal. Please be patient and try not to force something to happen. Are you ready to look at
+    the settings? Good. Then we’ll begin.</p>
+<ul>
+<li><span>&nbsp;Plugin Settings&nbsp;</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the Station ID,
+    Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and
+    enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
+    value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.</li><br>
+<li><span>&nbsp;Update Notifications&nbsp;</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications, check the
+    appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not
+    send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.</li><br>
+<li><span>&nbsp;Debugging&nbsp;</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the output is
+    tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a
+    lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A
+    setting of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.</li><br>
+<p>That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we
+    must select the data that we want to upload.</p>
+<li><span>&nbsp;Data Upload Settings&nbsp;</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a
+    variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable
+    names with “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready
+    to move on to the next step.</li>
+<p>There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories
+    within the plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables.
+    Simply select the PWS value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you
+    select—in other words, if you select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in
+    this regard so please choose wisely. There are more variables than can easily be shown with a simple screenshot, but I’ll highlight a few points below that are of
+    particular note:
+    <li><span>&nbsp;Weather Data&nbsp;</span> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
+        temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. Always populate
+        Outdoor Temperature 1 before populating Outdoor Temperature 2.
+    </li><br>
+    <li><span>&nbsp;Air Quality Data&nbsp;</span> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That
+        said, the plugin is completely agnostic about this and supports all available fields.
+    </li>
+</ul>
+
+<p><img class="TextWrapLeft" src="img_bangButton.png"> <br>It is important to note that <strong>you are responsible for the data you upload to Weather Underground</strong>. For
+    example, it's possible that you could
+    report the brightness of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that is obtained from another service. In other
+    words, don’t take data from your national weather bureau and upload it as your own. Please use the plugin to upload only data that you have generated through sensors,
+    math, and personal weather stations. Uploading others’ data is completely and totally uncool.</p>
+
+<h3>Framework</h3>
+<p>The framework of the entire environment as it relates to Indigo is very straightforward. Indigo talks through the plugin to the Weather Underground (WU) servers to allow
+    users to upload data from their Indigo installations to the Weather Underground Personal Weather Station (PWS) network. Communication is bi-directional (but only
+    slightly), and presently happens through routine calls using common Python communication protocols. Plugin users choose a predefined upload interval through a standard
+    plugin configuration setting, the plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack
+    thereof.)</p>
+<p>This plugin is designed to work with Indigo 6.0 and above and is therefore compatible with Python 2.6. I will do my best to account for other implementations where
+    possible, but sometimes I will not be able to do that when it would cause a loss of functionality or break existing frameworks. I will also work to continue to keep the
+    plugin current as Indigo, its Python implementation and WU API evolve over time.</p>
+
+<h3>Devices</h3>
+<ul>
+    <li>None</li>
+</ul>
+
+<h3>Actions</h3>
+<ul>
+    <li>None</li>
+</ul>
+
+<h3>Menu Items</h3>
+<p>There are a couple Indigo menu items associated with this plugin.
+<ul>
+    <li><span>&nbsp;Check for Plugin Updates&nbsp;</span> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function
+        properly you must configure plugin update notifications within the plugin configuration dialog window.
+    </li><br>
+    <li><span>&nbsp;Toggle Debugging&nbsp;</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the
+        plugin configuration dialog window.
+    </li>
+</ul>
+
+<h3>Scripting and Technical Details</h3>
+<p>Under construction.
+<ul>
+    <li>com.fogbert.indigoplugin.wunderstation</li>
+</ul>
+
+<h3>Requesting Features and Reporting Bugs</h3>
+<p>The best way to request features and to report undocumented features (bugs) is via the Indigo Forums. An alternative is to send me a Private Message via the Indigo
+    Forums—which is, in fact, the preferred way if your debug output contains sensitive information like your username, password and user email address. When reporting bugs,
+    it’s best to include the following information:
+<ol>
+    <li>What version of the plugin you’re using,</li>
+    <li>What version of Indigo you’re using,</li>
+    <li>Relevant error message text (be sure to provide the full text of the error you’re seeing, and</li>
+    <li>A version of the debug log showing what was happening when the error occurred.</li>
+</ol>
+<p>I will do my best to help you use the plugin, but I can only commit to providing support for the plugin itself; I can not commit to providing support for difficulties
+    accessing third-party resources, the accuracy of your data or other concerns external to the plugin. I would suggest that you post questions to the forum as other users
+    may be able to help where I may be unable to and benefit from answers provided.</p>
+
+<footer>
+    <hr>
+    <p>The WUnderstation Plugin is a third-party plugin for Indigo. Indigo Domotics—other than providing invaluable technical support and an absolutely fantastic product—have nothing
+        to do with the format, function, or results that this plugin provides. Likewise, Weather Underground, LLC—provider of the service, and also a fantastic product—have
+        nothing to do with the format, function, or results that this plugin provides. I am not affiliated with either company, but remain a very satisfied and loyal customer to both.
+        There are no warranties, either expressed or implied, that come with using this software. While I have done my best to make a quality product, and will endeavor to fix any and
+        all problems when they’re identified, I can’t guarantee that this plugin will be trouble-free. Therefore, please do use the plugin, but use at your own risk.</p>
+</footer>
 </body>
 </html>
