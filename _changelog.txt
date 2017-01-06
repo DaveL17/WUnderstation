@@ -1,5 +1,9 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.0.02
+- Adds WUnderstation device type.
+- Moves support URL to Github.
+
 v1.0.01
 - Moves project to GitHub and provides some general housekeeping.
 

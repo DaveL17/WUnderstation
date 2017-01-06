@@ -19,14 +19,14 @@
     data system.</p>
 
 <p>Highlights:
-    <ul>
-        <li>Easily create visually appealing charts for Indigo control pages.</li>
-        <li>Seamlessly manage attributes like color, fonts, sizes (and more!) for all charts at once.</li>
-        <li>Customize individual charts with markers, annotations, minimums and maximums, and user-defined constants.</li>
-        <li>Chart types Include: Line Charts, Bar Charts, Polar Charts, Multiline Text Charts, and WUnderground Plugin Charts.</li>
-        <li>Chart data that is created with the plugin, or incorporate your own (CSV).</li>
-        <li>Charts update automatically.
-    </ul>
+<ul>
+    <li>Easily create visually appealing charts for Indigo control pages.</li>
+    <li>Seamlessly manage attributes like color, fonts, sizes (and more!) for all charts at once.</li>
+    <li>Customize individual charts with markers, annotations, minimums and maximums, and user-defined constants.</li>
+    <li>Chart types Include: Line Charts, Bar Charts, Polar Charts, Multiline Text Charts, and WUnderground Plugin Charts.</li>
+    <li>Chart data that is created with the plugin, or incorporate your own (CSV).</li>
+    <li>Charts update automatically.
+</ul>
 </li>
 
 <h3>Installation</h3>
@@ -42,35 +42,107 @@
     plugin configuration menu. You may even see a beach ball briefly—this is normal. Please be patient and try not to force something to happen. Are you ready to look at
     the settings? Good. Then we’ll begin.</p>
 <ul>
-<li><span>&nbsp;Plugin Settings&nbsp;</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the Station ID,
-    Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and
-    enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
-    value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.</li><br>
-<li><span>&nbsp;Update Notifications&nbsp;</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications, check the
-    appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not
-    send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.</li><br>
-<li><span>&nbsp;Debugging&nbsp;</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the output is
-    tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a
-    lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A
-    setting of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.</li><br>
-<p>That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we
-    must select the data that we want to upload.</p>
-<li><span>&nbsp;Data Upload Settings&nbsp;</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a
-    variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable
-    names with “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready
-    to move on to the next step.</li>
-<p>There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories
-    within the plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables.
-    Simply select the PWS value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you
-    select—in other words, if you select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in
-    this regard so please choose wisely. There are more variables than can easily be shown with a simple screenshot, but I’ll highlight a few points below that are of
-    particular note:
+    <li><span>&nbsp;Plugin Settings&nbsp;</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin
+        settings: the Station ID,
+        Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and
+        enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
+        value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.
+    </li>
+    <br>
+    <li><span>&nbsp;Update Notifications&nbsp;</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable
+        notifications, check the
+        appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not
+        send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.
+    </li>
+    <br>
+    <li><span>&nbsp;Debugging&nbsp;</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause,
+        and the output is
+        tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a
+        lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A
+        setting of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.
+    </li>
+    <br>
+    <p>That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we
+        must select the data that we want to upload.</p>
+    <li><span>&nbsp;Data Upload Settings&nbsp;</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be
+        stored in a
+        variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable
+        names with “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready
+        to move on to the next step.
+    </li>
+    <p>There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories
+        within the plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables.
+        Simply select the PWS value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you
+        select—in other words, if you select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in
+        this regard so please choose wisely. There are more variables than can easily be shown with a simple screenshot, but I’ll highlight a few points below that are of
+        particular note:
     <li><span>&nbsp;Weather Data&nbsp;</span> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
-        temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. Always populate
-        Outdoor Temperature 1 before populating Outdoor Temperature 2.
-    </li><br>
+        temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. For example, always populate
+        Outdoor Temperature 1 before populating Outdoor Temperature 2.<br><br>
+    </li>
+    <ul>
+        <li><span>&nbsp; Barometric Pressure &nbsp;</span> - [barometric pressure inches] Float, must be greater than zero.</li>
+        <li><span>&nbsp; Current Clouds &nbsp;</span> - [Text - SKC, FEW, SCT, BKN, OVC] String.</li>
+        <li><span>&nbsp; Current Weather &nbsp;</span> - [metar style (+RA)] String.</li>
+        <li><span>&nbsp; Indoor Humidity &nbsp;</span> - [% indoor humidity 0-100] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Indoor Temperature &nbsp;</span> - [F indoor temperature F] Float.</li>
+        <li><span>&nbsp; Leaf Wetness 1 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Leaf Wetness 2 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Outdoor Dewpoint &nbsp;</span> - [F outdoor dewpoint F] Float.</li>
+        <li><span>&nbsp; Outdoor Humidity &nbsp;</span> - [% outdoor humidity 0-100%] Float, must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Outdoor Temperature 1 &nbsp;</span> - [F outdoor temperature] Float.</li>
+        <li><span>&nbsp; Outdoor Temperature 2 &nbsp;</span> - [F outdoor temperature] Float.</li>
+        <li><span>&nbsp; Outdoor Temperature 3 &nbsp;</span> - [F outdoor temperature] Float.</li>
+        <li><span>&nbsp; Outdoor Temperature 4 &nbsp;</span> - [F outdoor temperature] Float.</li>
+        <li><span>&nbsp; Rain All Day &nbsp;</span> - [rain inches so far today in local time] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Rain Last Hour &nbsp;</span> - [rain inches over the past hour] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Soil Moisture 1 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Soil Moisture 2 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Soil Moisture 3 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Soil Moisture 4 &nbsp;</span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+        <li><span>&nbsp; Soil Temperature 1 &nbsp;</span> - [F soil temperature] Float.</li>
+        <li><span>&nbsp; Soil Temperature 2 &nbsp;</span> - [F soil temperature] Float.</li>
+        <li><span>&nbsp; Soil Temperature 3 &nbsp;</span> - [F soil temperature] Float.</li>
+        <li><span>&nbsp; Soil Temperature 4 &nbsp;</span> - [F soil temperature] Float.</li>
+        <li><span>&nbsp; Solar Radiation &nbsp;</span> - [Watts per square meter. W/m^2] Float. Must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Ultra Violet Index &nbsp;</span> - [Index] Integer. Must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Visibility &nbsp;</span> - [nautical miles visibility] Float. Must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Direction &nbsp;</span> - [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Direction Average 10 Minutes &nbsp;</span> - [0-360 past 10 minutes wind gust direction] Integer, must be between 0 and 360 inclusive.</li>
+        <li><span>&nbsp; Wind Direction Average 2 Minutes &nbsp;</span> - [0-360 2 minute average wind direction] Integer, must be between 0 and 360 inclusive.</li>
+        <li><span>&nbsp; Wind Speed &nbsp;</span> - [mph instantaneous wind speed] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Speed Average 10 Minutes &nbsp;</span> - [mph past 10 minutes wind gust mph] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Speed Average 2 Minutes &nbsp;</span> - [mph 2 minute average wind speed mph] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Speed Gust &nbsp;</span> - [mph current wind gust, using software specific time period] Float, must be greater than or equal to zero.</li>
+        <li><span>&nbsp; Wind Speed Gust Direction &nbsp;</span> - [0-360 using software specific time period] Integer, must be between 0 and 360 inclusive.</li>
+    </ul>
+
+    <br>
+
     <li><span>&nbsp;Air Quality Data&nbsp;</span> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That
-        said, the plugin is completely agnostic about this and supports all available fields.
+        said, the plugin is completely agnostic about this and supports all available fields.<br><br>
+
+    <ul>
+        <li><span>&nbsp; [NO2 computed, NOx-NO PPB]&nbsp;</span> - </li>
+        <li><span>&nbsp; [NO2 computed, NOy-NO PPB]&nbsp;</span> - </li>
+        <li><span>&nbsp; [NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3]&nbsp;</span> - </li>
+        <li><span>&nbsp; [PM10 mass - PM10 mass]&nbsp;</span> - </li>
+        <li><span>&nbsp; [PM2.5 mass - UG/M3]&nbsp;</span> - </li>
+        <li><span>&nbsp; [SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3]&nbsp;</span> - </li>
+        <li><span>&nbsp; [trace levels PPB]&nbsp;</span> - </li>
+        <li><span>&nbsp; Aethalometer &nbsp;</span> - [UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3]</li>
+        <li><span>&nbsp; Black Carbon &nbsp;</span> - [BC (black carbon at 880 nm) UG/M3]</li>
+        <li><span>&nbsp; Carbon Monoxide &nbsp;</span> - [CO (carbon monoxide), conventional ppm]</li>
+        <li><span>&nbsp; Carbon Monoxide Trace &nbsp;</span> - [CO trace levels PPB]</li>
+        <li><span>&nbsp; Elemental Carbon &nbsp;</span> - [EC (elemental carbon) – PM2.5 UG/M3]</li>
+        <li><span>&nbsp; Nitric Oxide &nbsp;</span> - [NO (nitric oxide) PPB]</li>
+        <li><span>&nbsp; Nitrogen Dioxide &nbsp;</span> - [(nitrogen dioxide), true measure PPB]</li>
+        <li><span>&nbsp; Nitrogen Oxides &nbsp;</span> - [NOx (nitrogen oxides) - PPB]</li>
+        <li><span>&nbsp; Organic Carbon &nbsp;</span> - [OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3]</li>
+        <li><span>&nbsp; Ozone &nbsp;</span> - [Ozone - PPB]</li>
+        <li><span>&nbsp; Sulfur Dioxide &nbsp;</span> - [(sulfur dioxide), conventional PPB]</li>
+        <li><span>&nbsp; Total Reactive Nitrogen &nbsp;</span> - [NOy (total reactive nitrogen) - PPB]</li>
+    </ul>
     </li>
 </ul>
 
@@ -92,7 +164,25 @@
 
 <h3>Devices</h3>
 <ul>
-    <li>None</li>
+    <li><span>&nbsp;WUnderstation Device&nbsp;</span> - The Wunderstation device is used to track operation of the plugin. The main purpose of the device is as a repository of device
+        states:<br><br>
+        <ul>
+            <li><span>&nbsp;lastUploadResult&nbsp;</span> - this state will contain information about the result of the last upload attempt. It may contain a message from the Weather
+                Underground
+                server or it may contain information about communication errors.
+            </li>
+            <br>
+            <li><span>&nbsp;lastUploadTime&nbsp;</span> - this state will contain the time of the last successful upload. If subsequent uploads are unsuccessful, the time value will not
+                change until
+                the next upload succeeds.
+            </li>
+            <br>
+            <li><span>&nbsp;onOffState&nbsp;</span> - this state will convey the current status of the device. The value will be True if the plugin is functioning normally and False if
+                there is a
+                problem.
+            </li>
+        </ul>
+    </li>
 </ul>
 
 <h3>Actions</h3>
@@ -105,8 +195,10 @@
 <ul>
     <li><span>&nbsp;Check for Plugin Updates&nbsp;</span> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function
         properly you must configure plugin update notifications within the plugin configuration dialog window.
-    </li><br>
-    <li><span>&nbsp;Toggle Debugging&nbsp;</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the
+    </li>
+    <br>
+    <li><span>&nbsp;Toggle Debugging&nbsp;</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in
+        the
         plugin configuration dialog window.
     </li>
 </ul>

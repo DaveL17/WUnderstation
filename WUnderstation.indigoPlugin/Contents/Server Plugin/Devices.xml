@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<Devices>
+
+<!-- Dock Device -->
+	<Device type="custom" id="wunderstation">
+		<Name>WUnderstation</Name>
+		<ConfigUI>
+			<Field id="space00" type="label">
+				<Label>Please select a bike station.
+				 </Label>
+			</Field>
+		</ConfigUI>
+		<States>
+			<State id="lastUploadResult">
+				<ValueType>String</ValueType>
+				<TriggerLabel>Result of Last Upload</TriggerLabel>
+				<ControlPageLabel>Result of Last Upload</ControlPageLabel>
+			</State>
+			<State id="lastUploadTime">
+				<ValueType>String</ValueType>
+				<TriggerLabel>Time of Last Upload</TriggerLabel>
+				<ControlPageLabel>Time of Last Upload</ControlPageLabel>
+			</State>
+			<State id="onOffState">
+				<ValueType>Boolean</ValueType>
+				<TriggerLabel>Device State</TriggerLabel>
+				<ControlPageLabel>Device State</ControlPageLabel>
+			</State>
+		</States>
+		<UiDisplayStateId>onOffState</UiDisplayStateId>
+	</Device>
+</Devices>

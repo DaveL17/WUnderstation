@@ -12,13 +12,10 @@ presumed that the user will only create one WUnderstation implementation.
 
 API: http://wiki.wunderground.com/index.php/PWS_-_Upload_Protocol
 """
-# TODO: Think about adding a device to track the health of the plugin.  It could register:
-#   - the timestamp of the last successful update,
-#   - the plugin version,
-#   - the last update message (i.e, OK, Error, what the error is, etc.)
 # TODO: Consider whether it's possible to include the PWS sign-up within the plugin.
 # TODO: Enable RapidFire?
 # TODO: What Trigger, Action events (etc.) are necessary?
+#       - upload data now
 
 import indigoPluginUpdateChecker
 import socket
@@ -30,10 +27,10 @@ except ImportError:
 
 __author__    = "DaveL17"
 __build__     = ""
-__copyright__ = 'Copyright 2016 DaveL17'
+__copyright__ = 'Copyright 2017 DaveL17'
 __license__   = "MIT"
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.01'
+__version__   = '1.0.02'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -95,6 +92,15 @@ class Plugin(indigo.PluginBase):
                 self.debugLog(u"Debugging on. Level set to: {0}".format(self.debugLevel))
             else:
                 self.debugLog(u"Debugging off.")
+
+    def deviceStartComm(self, dev):
+        self.debugLog(u"Starting Bike Share device: {0}".format(dev.name))
+        dev.stateListOrDisplayStateIdChanged()
+        dev.updateStateOnServer('onOffState', value=False, uiValue=u"")
+
+    def deviceStopComm(self, dev):
+        self.debugLog(u"Stopping Bike Share device: {0}".format(dev.name))
+        dev.updateStateOnServer('onOffState', value=False, uiValue=u"Disabled")
 
     def toggleDebugEnabled(self):
         """Toggle debug on/off."""
@@ -233,7 +239,7 @@ class Plugin(indigo.PluginBase):
 
 # Weather values. Certain rules are applied to the data which are governed by methods above.
 
-    # Wind Direction: [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.
+    # Wind Direction [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.
             try:
                 wind_dir            = indigo.variables[int(self.pluginPrefs['winddir'])].value
                 var_dict['winddir'] = u"winddir={0}&".format(self.windCheck('winddir', wind_dir))
@@ -359,7 +365,7 @@ class Plugin(indigo.PluginBase):
             except Exception as error:
                 var_dict['weather'] = u""
 
-    # Current CloudsText - SKC, FEW, SCT, BKN, OVC] String.
+    # Current Clouds [Text - SKC, FEW, SCT, BKN, OVC] String.
             try:
                 current_clouds     = indigo.variables[int(self.pluginPrefs['clouds'])].value
                 var_dict['clouds'] = u"clouds={0}&".format(self.webify(current_clouds))
@@ -611,7 +617,7 @@ class Plugin(indigo.PluginBase):
                     self.debugLog(u"{0} = {1}".format(key, value))
 
             # Construct URL for upload. Variables arrayed in order of WUnderground Wiki. Not sure if they can appear in the URL in any order...
-            self.debugLog(u"Constructing URL for upload.")
+            self.debugLog(u"Construct URL for upload.")
 
             # [YYYY-MM-DD HH:MM:SS (mysql format)] In Universal Coordinated Time (UTC) __not_local_time__
             pws_id        = u"ID={0}&".format(self.pluginPrefs['wunderstationID'])
@@ -641,30 +647,46 @@ class Plugin(indigo.PluginBase):
 
                 if "INVALIDPASSWORDID" in result:
                     self.errorLog(u"Warning: Password and/or id are incorrect")
+                    on_off_state = False
                 elif "SUCCESS" in result:
                     self.degLog(u"Data uploaded successfully.")
-                # TODO: the following elif is for future functionality.
-                elif "RapidFire Server" in result:
-                    self.degLog(u"RapidFire Data uploaded successfully.")
+                    for dev in indigo.devices.itervalues("self"):
+                        if dev.deviceTypeId == 'wunderstation' and dev.enabled:
+                            dev.updateStateOnServer('lastUploadTime', value=u"{0}".format(indigo.server.getTime()))
+                    on_off_state = True
                 else:
                     self.errorLog(u"Result: {0}".format(result))
+                    on_off_state = False
 
-            except urllib2.HTTPError as e:
-                self.errorLog(u"Unable to reach PWS service. Reason: HTTPError - {0}".format(e))
+            except urllib2.HTTPError as error:
+                self.errorLog(u"Unable to reach PWS service. Reason: HTTPError - {0}".format(error))
+                result = error
+                on_off_state = False
 
-            except urllib2.URLError as e:
-                self.errorLog(u"Unable to reach PWS service. Reason: URLError - {0}".format(e))
+            except urllib2.URLError as error:
+                self.errorLog(u"Unable to reach PWS service. Reason: URLError - {0}".format(error))
+                result = error
+                on_off_state = False
 
-            except Exception as e:
-                if "invalid literal for int() with base 16: ''" in e:
+            except Exception as error:
+                if "invalid literal for int() with base 16: ''" in error:
                     self.errorLog(u"Congratulations! You have discovered a somewhat obscure bug in Python2.5. "
                                   u"This problem should clear up on its own, but may come back periodically.")
                 else:
-                    self.errorLog(u"Error preparing for upload to PWS service. Reason: Exception - {0}".format(e))
+                    self.errorLog(u"Error preparing for upload to PWS service. Reason: Exception - {0}".format(error))
+
+                result = error
+                on_off_state = False
+
+            for dev in indigo.devices.itervalues("self"):
+                if dev.deviceTypeId == 'wunderstation' and dev.enabled:
+                    dev.updateStateOnServer('lastUploadResult', value=result)
+                    dev.updateStateOnServer('onOffState', value=on_off_state)
+
             return
 
-        except Exception as e:
-            self.errorLog(u"Unable to upload WUnderstation data. Reason: Exception - {0}".format(e))
+        except Exception as error:
+            self.errorLog(u"Unable to upload WUnderstation data. Reason: Exception - {0}".format(error))
 
         return
 
@@ -700,12 +722,16 @@ class Plugin(indigo.PluginBase):
         return val
 
     def runConcurrentThread(self):
-        self.debugLog(u"runConcurrentThread initiated. Sleeping for 5 seconds.")
-        self.sleep(5)
+        self.debugLog(u"runConcurrentThread initiated. Sleeping for 3 seconds.")
+        self.sleep(3)
         self.updater.checkVersionPoll()
 
         try:
             while True:
+                for dev in indigo.devices.itervalues("self"):
+                    if dev.deviceTypeId == 'wunderstation' and dev.enabled:
+                        dev.updateStateOnServer('lastUploadResult', value=u"In process", uiValue=u"In process")
+
                 self.uploadWUnderstationData()
                 self.sleep(int(self.pluginPrefs.get('uploadInterval', 900)))
 
