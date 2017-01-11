@@ -30,7 +30,7 @@ __build__     = ""
 __copyright__ = 'Copyright 2017 DaveL17'
 __license__   = "MIT"
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.02'
+__version__   = '1.0.03'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -94,12 +94,12 @@ class Plugin(indigo.PluginBase):
                 self.debugLog(u"Debugging off.")
 
     def deviceStartComm(self, dev):
-        self.debugLog(u"Starting Bike Share device: {0}".format(dev.name))
+        self.debugLog(u"Starting WUnderstation device: {0}".format(dev.name))
         dev.stateListOrDisplayStateIdChanged()
         dev.updateStateOnServer('onOffState', value=False, uiValue=u"")
 
     def deviceStopComm(self, dev):
-        self.debugLog(u"Stopping Bike Share device: {0}".format(dev.name))
+        self.debugLog(u"Stopping WUnderstation device: {0}".format(dev.name))
         dev.updateStateOnServer('onOffState', value=False, uiValue=u"Disabled")
 
     def toggleDebugEnabled(self):
@@ -691,10 +691,10 @@ class Plugin(indigo.PluginBase):
         return
 
     def varListGenerator(self, filter="", valuesDict=None, typeId=0, targetId=0):
-        """This method collects IDs and names for all Indigo devices
-        and variables. It creates a dictionary of the form ((dev.id,
-        dev.name), (var.id, var.name)). We don't write this call to the
-        debug log because if we did, it would be written 53 times."""
+        """This method collects IDs and names for all Indigo devices and
+        variables. It creates a list of the form ((dev.id, dev.name),
+        (var.id, var.name)). We don't write this call to the debug log because
+        if we did, it would be written 53 times."""
 
         var_list = [(var.id, var.name) for var in indigo.variables]
         var_list.append((u'None', u'None'))

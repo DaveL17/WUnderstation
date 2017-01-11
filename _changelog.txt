@@ -1,5 +1,12 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.0.03
+- Reinstates None as a data element option.
+- Fixes errant text in WUnderstation device configuration menu.
+- Fixes bug in weather data configuration menu that caused Outdoor
+  Temperature 1 to be visible all the time.
+- Fixes references to plugin in debug output (cut/paste error).
+
 v1.0.02
 - Adds WUnderstation device type.
 - Moves support URL to Github.
