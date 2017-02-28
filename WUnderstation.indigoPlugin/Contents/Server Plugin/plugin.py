@@ -34,13 +34,13 @@ __version__   = '1.0.03'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
-    'showDebugInfo'        : False,  # Debug on/off
-    'showDebugLevel'       : "1",    # Low, Medium or High debug output.
-    'updaterEmail'         : "",     # Email to notify of plugin updates.
-    'updaterEmailsEnabled' : False,  # Notification of plugin updates wanted.
-    'uploadInterval'       : 900,    # How often to upload data?
-    'wunderstationID'      : "",     # Frequency of updates.
-    'wunderstationPassword': ""      # Verbose debug logging?
+    u'showDebugInfo'        : False,  # Debug on/off
+    u'showDebugLevel'       : "1",    # Low, Medium or High debug output.
+    u'updaterEmail'         : "",     # Email to notify of plugin updates.
+    u'updaterEmailsEnabled' : False,  # Notification of plugin updates wanted.
+    u'uploadInterval'       : 900,    # How often to upload data?
+    u'wunderstationID'      : "",     # Frequency of updates.
+    u'wunderstationPassword': ""      # Verbose debug logging?
 }
 
 
