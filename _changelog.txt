@@ -1,5 +1,8 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.0.04
+-
+
 v1.0.03
 - Reinstates None as a data element option.
 - Fixes errant text in WUnderstation device configuration menu.

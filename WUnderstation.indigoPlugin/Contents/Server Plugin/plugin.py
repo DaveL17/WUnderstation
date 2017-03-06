@@ -30,7 +30,7 @@ __build__     = ""
 __copyright__ = 'Copyright 2017 DaveL17'
 __license__   = "MIT"
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.03'
+__version__   = '1.0.04'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
