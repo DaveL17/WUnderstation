@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="https://davel17.github.io/common/fogbert.css">
+    <link rel="stylesheet" type="text/css" href="https://davel17.github.io/fogbert.css">
     <meta charset="UTF-8">
     <title>Wunderstation Plugin for Indigo Home Control Server</title>
 </head>
 <body>
-<div style="text-align: center"><img src="img/img_wunderstationLogo.png"></div>
+
+<div style="text-align: center">
+    <img src="img/img_wunderstationLogo.png">
+</div>
 
 <nav>
-    <a href="https://github.com/DaveL17/Wunderstation/releases"><img src="https://davel17.github.io/common/img/img_download.png"></a>
-    <a href="http://forums.indigodomo.com/viewforum.php?f=175"><img src="https://davel17.github.io/common/img/img_forum.png"></a>
-    <a href="https://github.com/DaveL17/WUnderstation/wiki"><img src="https://davel17.github.io/common/img/img_wiki.png"></a>
+    <a href="https://github.com/DaveL17/Wunderstation/releases"><img src="https://davel17.github.io/img/img_download.png"></a>
+    <a href="http://forums.indigodomo.com/viewforum.php?f=175"><img src="https://davel17.github.io/img/img_forum.png"></a>
+    <a href="https://github.com/DaveL17/WUnderstation/wiki"><img src="https://davel17.github.io/img/img_wiki.png"></a>
 </nav>
 
 <h1>About</h1>
-<p>The WUnderstation Plugin for the Indigo Home Control Server (Indigo) is used to provide a bridge between Indigo and the Weather Underground Personal Weather Station network
-    data system.</p>
+<p>
+    The WUnderstation Plugin for the Indigo Home Control Server (Indigo) is used to provide a bridge between Indigo and the Weather Underground Personal Weather Station network data
+    system.
+</p>
 
-<p>Highlights:
+<p>
+    Highlights:
 <ul>
     <li>Easily create visually appealing charts for Indigo control pages.</li>
     <li>Seamlessly manage attributes like color, fonts, sizes (and more!) for all charts at once.</li>
@@ -27,161 +33,180 @@
     <li>Chart data that is created with the plugin, or incorporate your own (CSV).</li>
     <li>Charts update automatically.
 </ul>
-</li>
+
 
 <h3>Installation</h3>
 <figure class="TextWrap">
     <figcaption>WUnderstation Plugin Configuration Dialog</figcaption>
     <img class="TextWrap" src="img/img_pluginConfigDialog.png">
 </figure>
-<p>Installing the WUnderstation Plugin is accomplished in the same way that you would install other Indigo plugins. There are no additional steps or other Python packages
-    that need to be installed. From the computer where the Indigo Server resides (you can’t directly install plugins from a client machine), download the current plugin
-    archive from the Indigo File Library and then double-click on the archive file. Indigo will prompt you to install the plugin. Once the plugin has been successfully
-    installed, you will need to configure the plugin to work with your desired implementation. During installation, Indigo should present you with the Plugin Configuration
-    dialog. If for some reason that doesn’t happen, or if you want to make additional changes later, you can always get to the Plugin Configuration dialog by going to the
-    Indigo main menu and selecting Plugins —> WUnderstation —> Configure…
-<p>All settings that affect the plugin’s overall operations are found in the Plugin Configuration dialog. The settings are divided into four sections: Plugin Settings,
-    Update Notification Settings, Debug Settings and Data Upload Settings. There is a fair bit of stuff that is happening behind the scenes when you choose to open the
-    plugin configuration menu. You may even see a beach ball briefly—this is normal. Please be patient and try not to force something to happen. Are you ready to look at
-    the settings? Good. Then we’ll begin.</p>
+<p>
+    Installing the WUnderstation Plugin is accomplished in the same way that you would install other Indigo plugins. There are no additional steps or other Python packages that need to
+    be installed. From the computer where the Indigo Server resides (you can’t directly install plugins from a client machine), download the current plugin archive from the Indigo File
+    Library and then double-click on the archive file. Indigo will prompt you to install the plugin. Once the plugin has been successfully installed, you will need to configure the
+    plugin to work with your desired implementation. During installation, Indigo should present you with the Plugin Configuration dialog. If for some reason that doesn’t happen, or if
+    you want to make additional changes later, you can always get to the Plugin Configuration dialog by going to the Indigo main menu and selecting Plugins —> WUnderstation —> Configure…
+</p>
+<p>
+    All settings that affect the plugin’s overall operations are found in the Plugin Configuration dialog. The settings are divided into four sections: Plugin Settings, Update
+    Notification Settings, Debug Settings and Data Upload Settings. There is a fair bit of stuff that is happening behind the scenes when you choose to open the plugin configuration
+    menu. You may even see a beach ball briefly—this is normal. Please be patient and try not to force something to happen. Are you ready to look at the settings? Good. Then we’ll begin.
+</p>
 <ul>
-    <li><span>Plugin Settings</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin
-        settings: the Station ID,
-        Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and
-        enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
+    <li>
+        <span>Plugin Settings</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the
+        Station ID, Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password,
+        and enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
         value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.
+        <br><br>
     </li>
-    <br>
-    <li><span>Update Notifications</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable
-        notifications, check the
-        appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not
-        send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.
+    <li>
+        <span>Update Notifications</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications,
+        check the appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does
+        not send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.
+        <br><br>
     </li>
-    <br>
-    <li><span>Debugging</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause,
-        and the output is
-        tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a
-        lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A
-        setting of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.
+    <li>
+        <span>Debugging</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the
+        output is tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still
+        a lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A setting
+        of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.
+        <br>
     </li>
-    <br>
-    <p>That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we
-        must select the data that we want to upload.</p>
-    <li><span>Data Upload Settings</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be
-        stored in a
-        variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable
-        names with “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready
-        to move on to the next step.
+</ul>
+    <p>
+        That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we must select
+        the data that we want to upload.
+    </p>
+<ul>
+    <li>
+        <span>Data Upload Settings</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a
+        variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable names with
+        “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready to move on to the
+        next step.
     </li>
-    <p>There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories
-        within the plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables.
-        Simply select the PWS value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you
-        select—in other words, if you select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in
-        this regard so please choose wisely. There are more variables than can easily be shown with a simple screenshot, but I’ll highlight a few points below that are of
-        particular note:
-    <li><span>Weather Data</span> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
+</ul>
+<p>
+    There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories within the
+    plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables. Simply select the PWS
+    value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you select—in other words, if you
+    select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in this regard so please choose wisely.
+    There are more variables than can easily be shown with a simple screen shot, but I’ll highlight a few points below that are of particular note:
+</p>
+<ul>
+    <li>
+        <span>Weather Data</span> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
         temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. For example, always populate
-        Outdoor Temperature 1 before populating Outdoor Temperature 2.<br><br>
+        Outdoor Temperature 1 before populating Outdoor Temperature 2.
+        <br><br>
+        <ul>
+            <li><span> Barometric Pressure </span> - [barometric pressure inches] Float, must be greater than zero.</li>
+            <li><span> Current Clouds </span> - [Text - SKC, FEW, SCT, BKN, OVC] String.</li>
+            <li><span> Current Weather </span> - [metar style (+RA)] String.</li>
+            <li><span> Indoor Humidity </span> - [% indoor humidity 0-100] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Indoor Temperature </span> - [F indoor temperature F] Float.</li>
+            <li><span> Leaf Wetness 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Leaf Wetness 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Outdoor Dewpoint </span> - [F outdoor dewpoint F] Float.</li>
+            <li><span> Outdoor Humidity </span> - [% outdoor humidity 0-100%] Float, must be between 0 and 100 inclusive.</li>
+            <li><span> Outdoor Temperature 1 </span> - [F outdoor temperature] Float.</li>
+            <li><span> Outdoor Temperature 2 </span> - [F outdoor temperature] Float.</li>
+            <li><span> Outdoor Temperature 3 </span> - [F outdoor temperature] Float.</li>
+            <li><span> Outdoor Temperature 4 </span> - [F outdoor temperature] Float.</li>
+            <li><span> Rain All Day </span> - [rain inches so far today in local time] Float, must be greater than or equal to zero.</li>
+            <li><span> Rain Last Hour </span> - [rain inches over the past hour] Float, must be greater than or equal to zero.</li>
+            <li><span> Soil Moisture 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Soil Moisture 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Soil Moisture 3 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Soil Moisture 4 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
+            <li><span> Soil Temperature 1 </span> - [F soil temperature] Float.</li>
+            <li><span> Soil Temperature 2 </span> - [F soil temperature] Float.</li>
+            <li><span> Soil Temperature 3 </span> - [F soil temperature] Float.</li>
+            <li><span> Soil Temperature 4 </span> - [F soil temperature] Float.</li>
+            <li><span> Solar Radiation </span> - [Watts per square meter. W/m^2] Float. Must be greater than or equal to zero.</li>
+            <li><span> Ultra Violet Index </span> - [Index] Integer. Must be greater than or equal to zero.</li>
+            <li><span> Visibility </span> - [nautical miles visibility] Float. Must be greater than or equal to zero.</li>
+            <li><span> Wind Direction </span> - [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.</li>
+            <li><span> Wind Direction Average 10 Minutes </span> - [0-360 past 10 minutes wind gust direction] Integer, must be between 0 and 360 inclusive.</li>
+            <li><span> Wind Direction Average 2 Minutes </span> - [0-360 2 minute average wind direction] Integer, must be between 0 and 360 inclusive.</li>
+            <li><span> Wind Speed </span> - [mph instantaneous wind speed] Float, must be greater than or equal to zero.</li>
+            <li><span> Wind Speed Average 10 Minutes </span> - [mph past 10 minutes wind gust mph] Float, must be greater than or equal to zero.</li>
+            <li><span> Wind Speed Average 2 Minutes </span> - [mph 2 minute average wind speed mph] Float, must be greater than or equal to zero.</li>
+            <li><span> Wind Speed Gust </span> - [mph current wind gust, using software specific time period] Float, must be greater than or equal to zero.</li>
+            <li><span> Wind Speed Gust Direction </span> - [0-360 using software specific time period] Integer, must be between 0 and 360 inclusive.</li>
+        </ul>
+        <br>
     </li>
-    <ul>
-        <li><span> Barometric Pressure </span> - [barometric pressure inches] Float, must be greater than zero.</li>
-        <li><span> Current Clouds </span> - [Text - SKC, FEW, SCT, BKN, OVC] String.</li>
-        <li><span> Current Weather </span> - [metar style (+RA)] String.</li>
-        <li><span> Indoor Humidity </span> - [% indoor humidity 0-100] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Indoor Temperature </span> - [F indoor temperature F] Float.</li>
-        <li><span> Leaf Wetness 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Leaf Wetness 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Outdoor Dewpoint </span> - [F outdoor dewpoint F] Float.</li>
-        <li><span> Outdoor Humidity </span> - [% outdoor humidity 0-100%] Float, must be between 0 and 100 inclusive.</li>
-        <li><span> Outdoor Temperature 1 </span> - [F outdoor temperature] Float.</li>
-        <li><span> Outdoor Temperature 2 </span> - [F outdoor temperature] Float.</li>
-        <li><span> Outdoor Temperature 3 </span> - [F outdoor temperature] Float.</li>
-        <li><span> Outdoor Temperature 4 </span> - [F outdoor temperature] Float.</li>
-        <li><span> Rain All Day </span> - [rain inches so far today in local time] Float, must be greater than or equal to zero.</li>
-        <li><span> Rain Last Hour </span> - [rain inches over the past hour] Float, must be greater than or equal to zero.</li>
-        <li><span> Soil Moisture 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Soil Moisture 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Soil Moisture 3 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Soil Moisture 4 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-        <li><span> Soil Temperature 1 </span> - [F soil temperature] Float.</li>
-        <li><span> Soil Temperature 2 </span> - [F soil temperature] Float.</li>
-        <li><span> Soil Temperature 3 </span> - [F soil temperature] Float.</li>
-        <li><span> Soil Temperature 4 </span> - [F soil temperature] Float.</li>
-        <li><span> Solar Radiation </span> - [Watts per square meter. W/m^2] Float. Must be greater than or equal to zero.</li>
-        <li><span> Ultra Violet Index </span> - [Index] Integer. Must be greater than or equal to zero.</li>
-        <li><span> Visibility </span> - [nautical miles visibility] Float. Must be greater than or equal to zero.</li>
-        <li><span> Wind Direction </span> - [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.</li>
-        <li><span> Wind Direction Average 10 Minutes </span> - [0-360 past 10 minutes wind gust direction] Integer, must be between 0 and 360 inclusive.</li>
-        <li><span> Wind Direction Average 2 Minutes </span> - [0-360 2 minute average wind direction] Integer, must be between 0 and 360 inclusive.</li>
-        <li><span> Wind Speed </span> - [mph instantaneous wind speed] Float, must be greater than or equal to zero.</li>
-        <li><span> Wind Speed Average 10 Minutes </span> - [mph past 10 minutes wind gust mph] Float, must be greater than or equal to zero.</li>
-        <li><span> Wind Speed Average 2 Minutes </span> - [mph 2 minute average wind speed mph] Float, must be greater than or equal to zero.</li>
-        <li><span> Wind Speed Gust </span> - [mph current wind gust, using software specific time period] Float, must be greater than or equal to zero.</li>
-        <li><span> Wind Speed Gust Direction </span> - [0-360 using software specific time period] Integer, must be between 0 and 360 inclusive.</li>
-    </ul>
 
-    <br>
+    <li>
+        <span>Air Quality Data</span> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That said, the
+        plugin is completely agnostic about this and supports all available fields.<br><br>
 
-    <li><span>Air Quality Data</span> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That
-        said, the plugin is completely agnostic about this and supports all available fields.<br><br>
-
-    <ul>
-        <li><span> [NO2 computed, NOx-NO PPB]</span> - </li>
-        <li><span> [NO2 computed, NOy-NO PPB]</span> - </li>
-        <li><span> [NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3]</span> - </li>
-        <li><span> [PM10 mass - PM10 mass]</span> - </li>
-        <li><span> [PM2.5 mass - UG/M3]</span> - </li>
-        <li><span> [SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3]</span> - </li>
-        <li><span> [trace levels PPB]</span> - </li>
-        <li><span> Aethalometer </span> - [UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3]</li>
-        <li><span> Black Carbon </span> - [BC (black carbon at 880 nm) UG/M3]</li>
-        <li><span> Carbon Monoxide </span> - [CO (carbon monoxide), conventional ppm]</li>
-        <li><span> Carbon Monoxide Trace </span> - [CO trace levels PPB]</li>
-        <li><span> Elemental Carbon </span> - [EC (elemental carbon) – PM2.5 UG/M3]</li>
-        <li><span> Nitric Oxide </span> - [NO (nitric oxide) PPB]</li>
-        <li><span> Nitrogen Dioxide </span> - [(nitrogen dioxide), true measure PPB]</li>
-        <li><span> Nitrogen Oxides </span> - [NOx (nitrogen oxides) - PPB]</li>
-        <li><span> Organic Carbon </span> - [OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3]</li>
-        <li><span> Ozone </span> - [Ozone - PPB]</li>
-        <li><span> Sulfur Dioxide </span> - [(sulfur dioxide), conventional PPB]</li>
-        <li><span> Total Reactive Nitrogen </span> - [NOy (total reactive nitrogen) - PPB]</li>
-    </ul>
+        <ul>
+            <li><span> [NO2 computed, NOx-NO PPB]</span> -</li>
+            <li><span> [NO2 computed, NOy-NO PPB]</span> -</li>
+            <li><span> [NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3]</span> -</li>
+            <li><span> [PM10 mass - PM10 mass]</span> -</li>
+            <li><span> [PM2.5 mass - UG/M3]</span> -</li>
+            <li><span> [SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3]</span> -</li>
+            <li><span> [trace levels PPB]</span> -</li>
+            <li><span> Aethalometer </span> - [UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3]</li>
+            <li><span> Black Carbon </span> - [BC (black carbon at 880 nm) UG/M3]</li>
+            <li><span> Carbon Monoxide </span> - [CO (carbon monoxide), conventional ppm]</li>
+            <li><span> Carbon Monoxide Trace </span> - [CO trace levels PPB]</li>
+            <li><span> Elemental Carbon </span> - [EC (elemental carbon) – PM2.5 UG/M3]</li>
+            <li><span> Nitric Oxide </span> - [NO (nitric oxide) PPB]</li>
+            <li><span> Nitrogen Dioxide </span> - [(nitrogen dioxide), true measure PPB]</li>
+            <li><span> Nitrogen Oxides </span> - [NOx (nitrogen oxides) - PPB]</li>
+            <li><span> Organic Carbon </span> - [OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3]</li>
+            <li><span> Ozone </span> - [Ozone - PPB]</li>
+            <li><span> Sulfur Dioxide </span> - [(sulfur dioxide), conventional PPB]</li>
+            <li><span> Total Reactive Nitrogen </span> - [NOy (total reactive nitrogen) - PPB]</li>
+        </ul>
     </li>
 </ul>
 
-<p><span class="cautionText"><img class="TextWrapLeft" src="https://davel17.github.io/common/img/img_bangButton.png"> <br>It is important to note that <strong>you are responsible for the data you upload to Weather Underground</strong>. For
-    example, it's possible that you could
-    report the brightness of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that is obtained from another service. In other
-    words, don’t take data from your national weather bureau and upload it as your own. Please use the plugin to upload only data that you have generated through sensors,
-    math, and personal weather stations. Uploading others’ data is completely and totally uncool.</span></p>
+<p>
+    <span class="cautionText">
+        <img class="TextWrapLeft" src="https://davel17.github.io/common/img/img_bangButton.png">
+        <br>
+        It is important to note that <strong>you are responsible for the data you upload to Weather Underground</strong>. For example, it's possible that you could report the brightness
+        of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that is obtained from another service. In other words, don’t take data from your
+        national weather bureau and upload it as your own. Please use the plugin to upload only data that you have generated through sensors, math, and personal weather stations.
+        Uploading others’ data is completely and totally uncool.
+    </span>
+</p>
 
 <h3>Framework</h3>
-<p>The framework of the entire environment as it relates to Indigo is very straightforward. Indigo talks through the plugin to the Weather Underground (WU) servers to allow
-    users to upload data from their Indigo installations to the Weather Underground Personal Weather Station (PWS) network. Communication is bi-directional (but only
-    slightly), and presently happens through routine calls using common Python communication protocols. Plugin users choose a predefined upload interval through a standard
-    plugin configuration setting, the plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack
-    thereof.)</p>
-<p>This plugin is designed to work with Indigo 6.0 and above and is therefore compatible with Python 2.6. I will do my best to account for other implementations where
-    possible, but sometimes I will not be able to do that when it would cause a loss of functionality or break existing frameworks. I will also work to continue to keep the
-    plugin current as Indigo, its Python implementation and WU API evolve over time.</p>
+<p>
+    The framework of the entire environment as it relates to Indigo is very straightforward. Indigo talks through the plugin to the Weather Underground (WU) servers to allow users to
+    upload data from their Indigo installations to the Weather Underground Personal Weather Station (PWS) network. Communication is bi-directional (but only slightly), and presently
+    happens through routine calls using common Python communication protocols. Plugin users choose a predefined upload interval through a standard plugin configuration setting, the
+    plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack thereof.)
+</p>
+<p>
+    This plugin is designed to work with Indigo 6.0 and above and is therefore compatible with Python 2.6. I will do my best to account for other implementations where possible, but
+    sometimes I will not be able to do that when it would cause a loss of functionality or break existing frameworks. I will also work to continue to keep the plugin current as Indigo,
+    its Python implementation and WU API evolve over time.
+</p>
 
 <h3>Devices</h3>
 <ul>
-    <li><span>WUnderstation Device</span> - The Wunderstation device is used to track operation of the plugin. The main purpose of the device is as a repository of device
-        states:<br><br>
+    <li>
+        <span>WUnderstation Device</span> - The Wunderstation device is used to track operation of the plugin. The main purpose of the device is as a repository of device states:<br><br>
         <ul>
-            <li><span>lastUploadResult</span> - this state will contain information about the result of the last upload attempt. It may contain a message from the Weather
-                Underground
+            <li>
+                <span>lastUploadResult</span> - this state will contain information about the result of the last upload attempt. It may contain a message from the Weather Underground
                 server or it may contain information about communication errors.
+                <br><br>
             </li>
-            <br>
-            <li><span>lastUploadTime</span> - this state will contain the time of the last successful upload. If subsequent uploads are unsuccessful, the time value will not
-                change until
+            <li>
+                <span>lastUploadTime</span> - this state will contain the time of the last successful upload. If subsequent uploads are unsuccessful, the time value will not change until
                 the next upload succeeds.
+                <br><br>
             </li>
-            <br>
-            <li><span>onOffState</span> - this state will convey the current status of the device. The value will be True if the plugin is functioning normally and False if
-                there is a
+            <li>
+                <span>onOffState</span> - this state will convey the current status of the device. The value will be True if the plugin is functioning normally and False if there is a
                 problem.
             </li>
         </ul>
@@ -194,33 +219,31 @@
 </ul>
 
 <h3>Menu Items</h3>
-<p>There are a couple Indigo menu items associated with this plugin.
+<p>
+    There are a couple Indigo menu items associated with this plugin.
+</p>
 <ul>
-    <li><span>Check for Plugin Updates</span> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function
-        properly you must configure plugin update notifications within the plugin configuration dialog window.
+    <li>
+        <span>Check for Plugin Updates</span> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function properly
+        you must configure plugin update notifications within the plugin configuration dialog window.
+        <br><br>
     </li>
-    <br>
-    <li><span>Toggle Debugging</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in
-        the
-        plugin configuration dialog window.
+    <li>
+        <span>Toggle Debugging</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the plugin
+        configuration dialog window.
     </li>
 </ul>
 
 <h3>Scripting and Technical Details</h3>
-<p>Under construction.
+<p>
+    Under construction.
+</p>
 <ul>
     <li><code>com.fogbert.indigoplugin.wunderstation</code></li>
 </ul>
 
-<object name="features_and_bugs" type="text/html" data="https://davel17.github.io/common/features_and_bugs.html" style="width: 100%; height: 280px;"></object>
+<object name="features_and_bugs" type="text/html" data="https://davel17.github.io/features_and_bugs.html" style="width: 100%; height: 300px;"></object>
+<object name="license" type="text/html" data="https://davel17.github.io/license.html" style="width: 100%; height: 300px;"></object>
 
-<footer>
-    <hr>
-    <p>The WUnderstation Plugin is a third-party plugin for Indigo. Indigo Domotics—other than providing invaluable technical support and an absolutely fantastic product—have nothing
-        to do with the format, function, or results that this plugin provides. Likewise, Weather Underground, LLC—provider of the service, and also a fantastic product—have
-        nothing to do with the format, function, or results that this plugin provides. I am not affiliated with either company, but remain a very satisfied and loyal customer to both.
-        There are no warranties, either expressed or implied, that come with using this software. While I have done my best to make a quality product, and will endeavor to fix any and
-        all problems when they’re identified, I can’t guarantee that this plugin will be trouble-free. Therefore, please do use the plugin, but use at your own risk.</p>
-</footer>
 </body>
 </html>
