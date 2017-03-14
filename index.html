@@ -54,127 +54,341 @@
 </p>
 <ul>
     <li>
-        <span>Plugin Settings</span> - WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the
-        Station ID, Password and Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password,
-        and enter these values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The
-        value is in seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.
-        <br><br>
+        <span>Plugin Settings</span>
+        <p>
+            WUnderstation Plugin Settings control the way in which the plugin interacts with the PWS system. There are only three main plugin settings: the Station ID, Password and
+            Upload Frequency. The Station ID and Password are obtained from WU directly, through its PWS portal. Users must obtain their own Station ID and Password, and enter these
+            values into the appropriate fields. Users should also select their preferred upload setting. This controls how often the plugin will upload your PWS data. The value is in
+            seconds. Presently, the plugin doesn’t directly support the RapidFire protocol.
+        </p>
     </li>
     <li>
-        <span>Update Notifications</span> - The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications,
-        check the appropriate box and enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does
-        not send messages on its own or collect any information about usage. All personal information is stored on the user’s machine.
-        <br><br>
+        <span>Update Notifications</span>
+        <p>
+            The plugin update notification settings tell the plugin to alert you when a new version of the plugin is available. To enable notifications, check the appropriate box and
+            enter a valid email address. This facility also requires that the user enable Indigo’s ability to send and receive email messages. The plugin does not send messages on its
+            own or collect any information about usage. All personal information is stored on the user’s machine.
+        </p>
     </li>
     <li>
-        <span>Debugging</span> - If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the
-        output is tremendously useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still
-        a lot, really.) Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A setting
-        of High will allow this sensitive information to be logged, so use with care when posting log results to a public place.
-        <br>
+        <span>Debugging</span>
+        <p>
+            If things aren’t working the way that you expect them to, turning on the debugging facility within the plugin can help us isolate the cause, and the output is tremendously
+            useful when reporting bugs. There are three levels of debug logging—Low, Medium and High. Selecting Low, provides a minimal amount of debug logging (still a lot, really.)
+            Medium provides for a pretty massive amount of logging (but keeps all sensitive data like Station ID, Password, and email address from being displayed.) A setting of High
+            will allow this sensitive information to be logged, so use with care when posting log results to a public place.
+        </p>
     </li>
 </ul>
-    <p>
-        That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we must select
-        the data that we want to upload.
-    </p>
+<p>
+    That’s the extent of the settings that affect the overall operation of the plugin. But we’re still not done setting up our WUnderstation Plugin implementation. Now we must select
+    the data that we want to upload.
+</p>
 <ul>
     <li>
-        <span>Data Upload Settings</span> - The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a
-        variable—it is recommended that users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable names with
-        “WU”; for example, WUtemp1, WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready to move on to the
-        next step.
+        <span>Data Upload Settings</span>
+        <p>
+            The plugin supports uploading data that are stored in Indigo Variables. Therefore, in order to upload any data, they must first be stored in a variable—it is recommended that
+            users choose a naming convention (and probably a special folder) to make identifying these values easier. I recommend starting variable names with “WU”; for example, WUtemp1,
+            WUtemp2, WUhumidity, etc. Once that’s done (you can always add more later, but you need at least one to get started) you’re ready to move on to the next step.
+        </p>
     </li>
 </ul>
 <p>
     There are presently over 50 data elements that users can choose to upload for their individual PWS implementation. These values are broken down into two sub-categories within the
     plugin: Weather Data and Air Quality Data. All settings are controlled with drop-down menus which are automatically pre-populated with all Indigo Variables. Simply select the PWS
-    value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you select—in other words, if you
-    select a humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in this regard so please choose wisely.
-    There are more variables than can easily be shown with a simple screen shot, but I’ll highlight a few points below that are of particular note:
+    value you want to assign by clicking the appropriate drop-down menu, and selecting the appropriate Indigo Variable. You “own” the data that you select—in other words, if you select a
+    humidity variable under a temperature field, that is what the plugin will try to upload. There is very little error-checking in this regard so please choose wisely. There are more
+    variables than can easily be shown with a simple screen shot, but I’ll highlight a few points below that are of particular note:
 </p>
 <ul>
     <li>
-        <span>Weather Data</span> - Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor
-        temperature, soil temperature, soil moisture, and so on. In instances where you are uploading fewer values, always start with the first one. For example, always populate
-        Outdoor Temperature 1 before populating Outdoor Temperature 2.
-        <br><br>
+        <span>Weather Data</span>
+        <p>Some weather fields have options for multiples of the same type of data—for example, the PWS network support up to four values for outdoor temperature, soil temperature, soil
+            moisture, and so on. In instances where you are uploading fewer values, always start with the first one. For example, always populate Outdoor Temperature 1 before populating
+            Outdoor Temperature 2.</p>
         <ul>
-            <li><span> Barometric Pressure </span> - [barometric pressure inches] Float, must be greater than zero.</li>
-            <li><span> Current Clouds </span> - [Text - SKC, FEW, SCT, BKN, OVC] String.</li>
-            <li><span> Current Weather </span> - [metar style (+RA)] String.</li>
-            <li><span> Indoor Humidity </span> - [% indoor humidity 0-100] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Indoor Temperature </span> - [F indoor temperature F] Float.</li>
-            <li><span> Leaf Wetness 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Leaf Wetness 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Outdoor Dewpoint </span> - [F outdoor dewpoint F] Float.</li>
-            <li><span> Outdoor Humidity </span> - [% outdoor humidity 0-100%] Float, must be between 0 and 100 inclusive.</li>
-            <li><span> Outdoor Temperature 1 </span> - [F outdoor temperature] Float.</li>
-            <li><span> Outdoor Temperature 2 </span> - [F outdoor temperature] Float.</li>
-            <li><span> Outdoor Temperature 3 </span> - [F outdoor temperature] Float.</li>
-            <li><span> Outdoor Temperature 4 </span> - [F outdoor temperature] Float.</li>
-            <li><span> Rain All Day </span> - [rain inches so far today in local time] Float, must be greater than or equal to zero.</li>
-            <li><span> Rain Last Hour </span> - [rain inches over the past hour] Float, must be greater than or equal to zero.</li>
-            <li><span> Soil Moisture 1 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Soil Moisture 2 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Soil Moisture 3 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Soil Moisture 4 </span> - [%] Float. Must be between 0 and 100 inclusive.</li>
-            <li><span> Soil Temperature 1 </span> - [F soil temperature] Float.</li>
-            <li><span> Soil Temperature 2 </span> - [F soil temperature] Float.</li>
-            <li><span> Soil Temperature 3 </span> - [F soil temperature] Float.</li>
-            <li><span> Soil Temperature 4 </span> - [F soil temperature] Float.</li>
-            <li><span> Solar Radiation </span> - [Watts per square meter. W/m^2] Float. Must be greater than or equal to zero.</li>
-            <li><span> Ultra Violet Index </span> - [Index] Integer. Must be greater than or equal to zero.</li>
-            <li><span> Visibility </span> - [nautical miles visibility] Float. Must be greater than or equal to zero.</li>
-            <li><span> Wind Direction </span> - [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.</li>
-            <li><span> Wind Direction Average 10 Minutes </span> - [0-360 past 10 minutes wind gust direction] Integer, must be between 0 and 360 inclusive.</li>
-            <li><span> Wind Direction Average 2 Minutes </span> - [0-360 2 minute average wind direction] Integer, must be between 0 and 360 inclusive.</li>
-            <li><span> Wind Speed </span> - [mph instantaneous wind speed] Float, must be greater than or equal to zero.</li>
-            <li><span> Wind Speed Average 10 Minutes </span> - [mph past 10 minutes wind gust mph] Float, must be greater than or equal to zero.</li>
-            <li><span> Wind Speed Average 2 Minutes </span> - [mph 2 minute average wind speed mph] Float, must be greater than or equal to zero.</li>
-            <li><span> Wind Speed Gust </span> - [mph current wind gust, using software specific time period] Float, must be greater than or equal to zero.</li>
-            <li><span> Wind Speed Gust Direction </span> - [0-360 using software specific time period] Integer, must be between 0 and 360 inclusive.</li>
+            <li><span>Barometric Pressure</span>
+                <p>
+                    [barometric pressure inches] Float, must be greater than zero.
+                </p>
+            </li>
+            <li><span>Current Clouds</span>
+                <p>
+                    Text - SKC, FEW, SCT, BKN, OVC] String.
+                </p>
+            </li>
+            <li><span>Current Weather</span>
+                <p>
+                    [metar style (+RA)] String.
+                </p>
+            </li>
+            <li><span>Indoor Humidity</span>
+                <p>
+                    [% indoor humidity 0-100] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Indoor Temperature</span>
+                <p>
+                    [F indoor temperature F] Float.
+                </p>
+            </li>
+            <li><span>Leaf Wetness 1</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Leaf Wetness 2</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Outdoor Dewpoint</span>
+                <p>
+                    [F outdoor dewpoint F] Float.
+                </p>
+            </li>
+            <li><span>Outdoor Humidity</span>
+                <p>
+                    [% outdoor humidity 0-100%] Float, must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Outdoor Temperature 1</span>
+                <p>
+                    [F outdoor temperature] Float.
+                </p>
+            </li>
+            <li><span>Outdoor Temperature 2</span>
+                <p>
+                    [F outdoor temperature] Float.
+                </p>
+            </li>
+            <li><span>Outdoor Temperature 3</span>
+                <p>
+                    [F outdoor temperature] Float.
+                </p>
+            </li>
+            <li><span>Outdoor Temperature 4</span>
+                <p>
+                    [F outdoor temperature] Float.
+                </p>
+            </li>
+            <li><span>Rain All Day</span>
+                <p>
+                    [rain inches so far today in local time] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Rain Last Hour</span>
+                <p>
+                    [rain inches over the past hour] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Soil Moisture 1</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Soil Moisture 2</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Soil Moisture 3</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Soil Moisture 4</span>
+                <p>
+                    [%] Float. Must be between 0 and 100 inclusive.
+                </p>
+            </li>
+            <li><span>Soil Temperature 1</span>
+                <p>
+                    [F soil temperature] Float.
+                </p>
+            </li>
+            <li><span>Soil Temperature 2</span>
+                <p>
+                    [F soil temperature] Float.
+                </p>
+            </li>
+            <li><span>Soil Temperature 3</span>
+                <p>
+                    [F soil temperature] Float.
+                </p>
+            </li>
+            <li><span>Soil Temperature 4</span>
+                <p>
+                    [F soil temperature] Float.
+                </p>
+            </li>
+            <li><span>Solar Radiation</span>
+                <p>
+                    [Watts per square meter. W/m^2] Float. Must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Ultra Violet Index</span>
+                <p>
+                    [Index] Integer. Must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Visibility</span>
+                <p>
+                    [nautical miles visibility] Float. Must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Direction</span>
+                <p>
+                    [0-360 instantaneous wind direction] Integer, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Direction Average 10 Minutes</span>
+                <p>
+                    [0-360 past 10 minutes wind gust direction] Integer, must be between 0 and 360 inclusive.
+                </p>
+            </li>
+            <li><span>Wind Direction Average 2 Minutes</span>
+                <p>
+                    [0-360 2 minute average wind direction] Integer, must be between 0 and 360 inclusive.
+                </p>
+            </li>
+            <li><span>Wind Speed</span>
+                <p>
+                    [mph instantaneous wind speed] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Speed Average 10 Minutes</span>
+                <p>
+                    [mph past 10 minutes wind gust mph] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Speed Average 2 Minutes</span>
+                <p>
+                    [mph 2 minute average wind speed mph] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Speed Gust</span>
+                <p>
+                    [mph current wind gust, using software specific time period] Float, must be greater than or equal to zero.
+                </p>
+            </li>
+            <li><span>Wind Speed Gust Direction</span>
+                <p>
+                    [0-360 using software specific time period] Integer, must be between 0 and 360 inclusive.
+                </p>
+            </li>
         </ul>
-        <br>
     </li>
 
     <li>
-        <span>Air Quality Data</span> - There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That said, the
-        plugin is completely agnostic about this and supports all available fields.<br><br>
+        <span>Air Quality Data</span>
+        <p>
+            There is a high degree of likelihood that you will not use most of the air quality fields that are supported by the PWS network. That said, the plugin is completely agnostic
+            about this and supports all available fields.
+        </p>
 
         <ul>
-            <li><span> [NO2 computed, NOx-NO PPB]</span> -</li>
-            <li><span> [NO2 computed, NOy-NO PPB]</span> -</li>
-            <li><span> [NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3]</span> -</li>
-            <li><span> [PM10 mass - PM10 mass]</span> -</li>
-            <li><span> [PM2.5 mass - UG/M3]</span> -</li>
-            <li><span> [SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3]</span> -</li>
-            <li><span> [trace levels PPB]</span> -</li>
-            <li><span> Aethalometer </span> - [UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3]</li>
-            <li><span> Black Carbon </span> - [BC (black carbon at 880 nm) UG/M3]</li>
-            <li><span> Carbon Monoxide </span> - [CO (carbon monoxide), conventional ppm]</li>
-            <li><span> Carbon Monoxide Trace </span> - [CO trace levels PPB]</li>
-            <li><span> Elemental Carbon </span> - [EC (elemental carbon) – PM2.5 UG/M3]</li>
-            <li><span> Nitric Oxide </span> - [NO (nitric oxide) PPB]</li>
-            <li><span> Nitrogen Dioxide </span> - [(nitrogen dioxide), true measure PPB]</li>
-            <li><span> Nitrogen Oxides </span> - [NOx (nitrogen oxides) - PPB]</li>
-            <li><span> Organic Carbon </span> - [OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3]</li>
-            <li><span> Ozone </span> - [Ozone - PPB]</li>
-            <li><span> Sulfur Dioxide </span> - [(sulfur dioxide), conventional PPB]</li>
-            <li><span> Total Reactive Nitrogen </span> - [NOy (total reactive nitrogen) - PPB]</li>
+            <li><span>[NO2 computed, NOx-NO PPB]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[NO2 computed, NOy-NO PPB]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[PM10 mass - PM10 mass]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[PM2.5 mass - UG/M3]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>[trace levels PPB]</span>
+                <p>
+                </p>
+            </li>
+            <li><span>Aethalometer</span>
+                <p>
+                    [UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3]
+                </p>
+            </li>
+            <li><span>Black Carbon</span>
+                <p>
+                    [BC (black carbon at 880 nm) UG/M3]
+                </p>
+            </li>
+            <li><span>Carbon Monoxide</span>
+                <p>
+                    [CO (carbon monoxide), conventional ppm]
+                </p>
+            </li>
+            <li><span>Carbon Monoxide Trace</span>
+                <p>
+                    [CO trace levels PPB]
+                </p>
+            </li>
+            <li><span>Elemental Carbon</span>
+                <p>
+                    [EC (elemental carbon) – PM2.5 UG/M3]
+                </p>
+            </li>
+            <li><span>Nitric Oxide</span>
+                <p>
+                    [NO (nitric oxide) PPB]
+                </p>
+            </li>
+            <li><span>Nitrogen Dioxide</span>
+                <p>
+                    [(nitrogen dioxide), true measure PPB]
+                </p>
+            </li>
+            <li><span>Nitrogen Oxides</span>
+                <p>
+                    [NOx (nitrogen oxides) - PPB]
+                </p>
+            </li>
+            <li><span>Organic Carbon</span>
+                <p>
+                    [OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3]
+                </p>
+            </li>
+            <li><span>Ozone</span>
+                <p>
+                    [Ozone - PPB]
+                </p>
+            </li>
+            <li><span>Sulfur Dioxide</span>
+                <p>
+                    [(sulfur dioxide), conventional PPB]
+                </p>
+            </li>
+            <li><span>Total Reactive Nitrogen</span>
+                <p>
+                    [NOy (total reactive nitrogen) - PPB]
+                </p>
+            </li>
         </ul>
     </li>
 </ul>
 
 <p>
     <span class="cautionText">
-        <img class="TextWrapLeft" src="https://davel17.github.io/common/img/img_bangButton.png">
-        <br>
+        <img class="TextWrapLeft" src="https://davel17.github.io/img/img_bangButton.png">
         It is important to note that <strong>you are responsible for the data you upload to Weather Underground</strong>. For example, it's possible that you could report the brightness
-        of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that is obtained from another service. In other words, don’t take data from your
+        of a light as the outside temperature. So be careful and choose wisely. Please do not upload data that's obtained from another service. In other words, don’t take data from your
         national weather bureau and upload it as your own. Please use the plugin to upload only data that you have generated through sensors, math, and personal weather stations.
         Uploading others’ data is completely and totally uncool.
-    </span>
+   </span>
 </p>
 
 <h3>Framework</h3>
@@ -193,21 +407,30 @@
 <h3>Devices</h3>
 <ul>
     <li>
-        <span>WUnderstation Device</span> - The Wunderstation device is used to track operation of the plugin. The main purpose of the device is as a repository of device states:<br><br>
+        <span>WUnderstation Device</span>
+        <p>
+            The Wunderstation device is used to track operation of the plugin. The main purpose of the device is as a repository of device states:
+        </p>
         <ul>
             <li>
-                <span>lastUploadResult</span> - this state will contain information about the result of the last upload attempt. It may contain a message from the Weather Underground
-                server or it may contain information about communication errors.
-                <br><br>
+                <span>lastUploadResult</span>
+                <p>
+                    this state will contain information about the result of the last upload attempt. It may contain a message from the Weather Underground server or it may contain
+                    information about communication errors.
+                </p>
             </li>
             <li>
-                <span>lastUploadTime</span> - this state will contain the time of the last successful upload. If subsequent uploads are unsuccessful, the time value will not change until
-                the next upload succeeds.
-                <br><br>
+                <span>lastUploadTime</span>
+                <p>
+                    this state will contain the time of the last successful upload. If subsequent uploads are unsuccessful, the time value will not change until the next upload
+                    succeeds.
+                </p>
             </li>
             <li>
-                <span>onOffState</span> - this state will convey the current status of the device. The value will be True if the plugin is functioning normally and False if there is a
-                problem.
+                <span>onOffState</span>
+                <p>
+                    this state will convey the current status of the device. The value will be True if the plugin is functioning normally and False if there is a problem.
+                </p>
             </li>
         </ul>
     </li>
@@ -224,13 +447,17 @@
 </p>
 <ul>
     <li>
-        <span>Check for Plugin Updates</span> - Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function properly
-        you must configure plugin update notifications within the plugin configuration dialog window.
-        <br><br>
+        <span>Check for Plugin Updates</span>
+        <p>
+            Select this menu item to check to see if there is a new version of the plugin available. In order for this feature to function properly you must configure plugin update
+            notifications within the plugin configuration dialog window.
+        </p>
     </li>
     <li>
-        <span>Toggle Debugging</span> - Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the plugin
-        configuration dialog window.
+        <span>Toggle Debugging</span>
+        <p>Selecting this item will turn debugging mode on or off depending on its current setting. Additional debugging settings can be found in the plugin configuration dialog
+            window.
+        </p>
     </li>
 </ul>
 
