@@ -13,11 +13,12 @@
         }
     </script>
 </head>
-<body>
 
-<div style="text-align: center">
-    <img src="img/img_wunderstationLogo.png">
-</div>
+<header>
+    <img style="margin: 0px auto; display: block" src="img/img_wunderstationLogo.png">
+</header>
+
+<body>
 
 <nav>
     <a href="https://github.com/DaveL17/Wunderstation/releases"><img src="https://davel17.github.io/img/img_download.png"></a>
@@ -404,7 +405,8 @@
     The framework of the entire environment as it relates to Indigo is very straightforward. Indigo talks through the plugin to the Weather Underground (WU) servers to allow users to
     upload data from their Indigo installations to the Weather Underground Personal Weather Station (PWS) network. Communication is bi-directional (but only slightly), and presently
     happens through routine calls using common Python communication protocols. Plugin users choose a predefined upload interval through a standard plugin configuration setting, the
-    plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack thereof.)
+    plugin reaches out to the WU servers and uploads data, and Weather Underground responds with a message denoting success (or lack thereof.)  The plugin relies on the
+    <a href="http://wiki.wunderground.com/index.php/PWS_-_Upload_Protocol">Weather Underground PWS Upload Protocol</a>.
 </p>
 <p>
     This plugin is designed to work with Indigo 6.0 and above and is therefore compatible with Python 2.6. I will do my best to account for other implementations where possible, but
