@@ -4,11 +4,19 @@
         <Label>WUnderstation Plugin</Label>
     </Field>
 
-    <Field id="space00" type="label" fontSize="small">
+    <Field id="space000" type="label" fontSize="small">
         <Label>Developed by DaveL17</Label>
     </Field>
 
-    <Field id="separator00" type="separator"/>
+    <Field id="termsOfService" type="label" fontSize="mini">
+        <Label>Personal Weather Station (PWS) service provided by Weather Underground, LLC. This plugin and its author are in no way affiliated with Weather Underground.</Label>
+    </Field>
+
+    <Field id="space001" type="label" alignText="right">
+        <Label>Plugin Settings</Label>
+    </Field>
+
+	<Field id="simpleSeparator0" type="separator"/>
 
     <Field id="wunderstationID" type="textfield" defaultValue="" tooltip="Please enter your ID as registered by wunderground.com.">
         <Label>Station ID (PWS):</Label>
@@ -22,43 +30,19 @@
         <Label>Upload Frequency (seconds):</Label>
     </Field>
 
-    <Field id="separator01" type="separator"/>
-
-    <Field id="space03" type="label">
-        <Label>Receive an email alerting you to plugin updates:</Label>
+    <Field id="space06b" type="label" alignText="Right">
+        <Label/>
     </Field>
 
-    <Field id="updaterEmailsEnabled" type="checkbox" defaultValue="false" tooltip="Enables (disables) email notifications.">
-        <Label>Enable/Disable:</Label>
-        <Description/>
-    </Field>
-
-    <Field id="updaterEmail" type="textfield" tooltip="Please enter the email address to receive notifications of updates to the plugin.">
-        <Label>Email address:</Label>
-    </Field>
-
-    <Field id="separator02" type="separator"/>
-
-    <Field id="showDebugInfo" type="checkbox" tooltip="Enabling will result in verbose logging.">
-        <Label>Debugging:</Label>
-        <Description>Enable/Disable</Description>
-    </Field>
-
-    <Field id="showDebugLevel" type="menu" defaultValue="1" tooltip="Controls the amount of debug information written to the log.">
-        <Label>Debug level:</Label>
-        <Description>Enable/Disable</Description>
-        <List>
-            <Option value="1">Low</Option>
-            <Option value="2">Medium</Option>
-            <Option value="3">High</Option>
-        </List>
+    <Field id="space06a" type="label" alignText="Right">
+        <Label>Data Settings</Label>
     </Field>
 
     <Field id="separator03" type="separator"/>
 
     <Field id="space06" type="checkbox">
-        <Label>Weather Data:</Label>
-        <Description>Show/Hide</Description>
+        <Label>Display Weather Settings:</Label>
+        <Description/>
     </Field>
 
     <!-- * for extra outdoor sensors use temp2f, temp3f, and so on -->
@@ -245,8 +229,8 @@
 
     <!-- Air quality measures, hidden by default. -->
     <Field id="space09" type="checkbox">
-        <Label>Air Quality Data:</Label>
-        <Description>Show/Hide</Description>
+        <Label>Display Air Quality Settings:</Label>
+        <Description/>
     </Field>
 
     <Field id="AqUV-AETH" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true"
@@ -344,6 +328,51 @@
     <Field id="AqSO2T" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="trace levels PPB">
         <List class="self" filter="" method="varListGenerator"/>
         <Label>Sulfur Dioxide (PPB Trace)</Label>
+    </Field>
+
+    <!-- Notifications Template -->
+    <Template file="DLFramework/template_notifications.xml" />
+
+    <Field id="showDebugSpace" type="label">
+        <Label/>
+    </Field>
+
+    <Field id="showDebugLabel" type="label" alignText="Right">
+        <Label>Debug Settings</Label>
+    </Field>
+
+    <Field id="separator01" type="separator"/>
+
+    <Field id="displayDebugSettings" type="checkbox" tooltip="Show debug settings.">
+        <Label>Display Settings:</Label>
+        <Description/>
+    </Field>
+
+    <Field id="showDebugInfo" type="checkbox" tooltip="Enabling will result in verbose logging." visibleBindingId="displayDebugSettings" visibleBindingValue="true">
+        <Label/>
+        <Description>Enable/Disable</Description>
+    </Field>
+
+    <Field id="showDebugLevel" type="menu" defaultValue="1" visibleBindingId="displayDebugSettings" visibleBindingValue="true"
+           tooltip="Controls the amount of debug information written to the log.">
+        <Label>Debug level:</Label>
+        <Description>Enable/Disable</Description>
+        <List>
+            <Option value="1">Low</Option>
+            <Option value="2">Medium</Option>
+            <Option value="3">High</Option>
+        </List>
+    </Field>
+
+    <Field id="space07" type="label" visibleBindingId="displayDebugSettings" visibleBindingValue="true" fontSize="small" alignWithControl="False">
+        <Label>Turn on debugging only when needed. Be careful when posting the output to the forums or other public places as it could expose sensitive information.</Label>
+    </Field>
+
+    <Field id="space08" type="label" visibleBindingId="displayDebugSettings" visibleBindingValue="true" fontSize="mini" alignWithControl="False">
+        <Label>Low - Minimal debugging.
+Medium - All debug logging except sensitive information.
+High - May contain sensitive information.
+        </Label>
     </Field>
 
 </PluginConfig>

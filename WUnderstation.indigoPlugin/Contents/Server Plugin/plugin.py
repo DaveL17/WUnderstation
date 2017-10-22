@@ -12,25 +12,44 @@ presumed that the user will only create one WUnderstation implementation.
 
 API: http://wiki.wunderground.com/index.php/PWS_-_Upload_Protocol
 """
+
+# =================================== TO DO ===================================
+
 # TODO: Consider whether it's possible to include the PWS sign-up within the plugin.
 # TODO: Enable RapidFire?
 # TODO: What Trigger, Action events (etc.) are necessary?
 #       - upload data now
 
-import indigoPluginUpdateChecker
+# ================================== IMPORTS ==================================
+
+# Built-in modules
 import socket
 import urllib2
+
+# Third-party modules
+from DLFramework import indigoPluginUpdateChecker
 try:
     import indigo
 except ImportError:
     pass
+try:
+    import pydevd
+except ImportError:
+    pass
 
-__author__    = "DaveL17"
-__build__     = ""
-__copyright__ = 'Copyright 2017 DaveL17'
-__license__   = "MIT"
+# My modules
+import DLFramework as dlf
+
+# =================================== HEADER ==================================
+
+__author__    = dlf.DLFramework.__author__
+__copyright__ = dlf.DLFramework.__copyright__
+__license__   = dlf.DLFramework.__license__
+__build__     = dlf.DLFramework.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.04'
+__version__   = '1.0.05'
+
+# =============================================================================
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -47,14 +66,26 @@ kDefaultPluginPrefs = {
 class Plugin(indigo.PluginBase):
     def __init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs):
         indigo.PluginBase.__init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs)
-        self.debugLog(u"Plugin initialization called.")
-
+        
         self.debug                = self.pluginPrefs.get('showDebugInfo', False)
         self.debugLevel           = int(self.pluginPrefs.get('showDebugLevel', "1"))
         updater_url               = 'https://davel17.github.io/WUnderstation/wunderstation.html'
         self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
         self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
         self.updaterEmailsEnabled = self.pluginPrefs.get('updaterEmailsEnabled', "false")
+
+        # ====================== Initialize DLFramework =======================
+
+        self.dlf = dlf.DLFramework.Fogbert(self)
+
+        # Log pluginEnvironment information when plugin is first started
+        self.dlf.pluginEnvironment()
+
+        # Convert old debugLevel scale (low, medium, high) to new scale (1, 2, 3).
+        if not 0 < self.pluginPrefs.get('showDebugLevel', 1) <= 3:
+            self.pluginPrefs['showDebugLevel'] = self.dlf.convertDebugLevel(self.pluginPrefs['showDebugLevel'])
+
+        # =====================================================================
 
         self.debugLog(u"Debug level set to: {0}".format(self.debugLevel))
         if self.debug and self.debugLevel >= 3:
@@ -65,6 +96,11 @@ class Plugin(indigo.PluginBase):
             self.debugLog(unicode(pluginPrefs))
         else:
             self.debugLog(u"Set debug level to [High] to write plugin preferences to the log.")
+
+        # try:
+        #     pydevd.settrace('localhost', port=5678, stdoutToServer=True, stderrToServer=True, suspend=False)
+        # except:
+        #     pass
 
     def __del__(self):
         indigo.PluginBase.__del__(self)
@@ -707,8 +743,8 @@ class Plugin(indigo.PluginBase):
         Do not replace '&', '?' (as they are required characters.)"""
         self.debugLog(u"webify() method called.")
 
-        val = val.replace(' ', '%20')
-        return val
+        # val = val.replace(' ', '%20')
+        return val.replace(' ', '%20')
 
     def windCheck(self, var_name, val):
         """The windCheck() method ensures that a wind direction value

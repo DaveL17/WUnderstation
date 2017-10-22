@@ -3,7 +3,7 @@
 <MenuItems>
 
     <MenuItem id="checkForUpdates">
-        <Name>Check for Plugin Updates...</Name>
+        <Name>Check for Plugin Updates</Name>
         <CallbackMethod>checkVersionNow</CallbackMethod>
     </MenuItem>
 
