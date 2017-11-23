@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PluginConfig>
-    <Field id="infoLabel00" type="label" fontSize="large">
+    <Field id="infoLabel00" type="label">
         <Label>WUnderstation Plugin</Label>
     </Field>
 
@@ -30,9 +30,7 @@
         <Label>Upload Frequency (seconds):</Label>
     </Field>
 
-    <Field id="space06b" type="label" alignText="Right">
-        <Label/>
-    </Field>
+    <Field id="space06b" type="label"/>
 
     <Field id="space06a" type="label" alignText="Right">
         <Label>Data Settings</Label>
@@ -333,9 +331,7 @@
     <!-- Notifications Template -->
     <Template file="DLFramework/template_notifications.xml" />
 
-    <Field id="showDebugSpace" type="label">
-        <Label/>
-    </Field>
+    <Field id="showDebugSpace" type="label"/>
 
     <Field id="showDebugLabel" type="label" alignText="Right">
         <Label>Debug Settings</Label>
