@@ -47,7 +47,7 @@ __copyright__ = Dave.__copyright__
 __license__   = Dave.__license__
 __build__     = Dave.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.05'
+__version__   = '1.0.06'
 
 # =============================================================================
 
@@ -77,6 +77,11 @@ class Plugin(indigo.PluginBase):
         # ====================== Initialize DLFramework =======================
 
         self.Fogbert = Dave.Fogbert(self)
+
+        # Weather Underground Attribution and disclaimer.
+        indigo.server.log(u"{0:*^130}".format(""))
+        indigo.server.log(u"{0:*^130}".format("  Data are provided by Weather Underground, LLC. This plugin and its author are in no way affiliated with Weather Underground.  "))
+        indigo.server.log(u"{0:*^130}".format(""))
 
         # Log pluginEnvironment information when plugin is first started
         self.Fogbert.pluginEnvironment()
