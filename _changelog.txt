@@ -1,5 +1,13 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.0.07
+- Updates plist link to wiki.
+- Updates plugin update checker to use curl to overcome outdated security of
+  Apple's Python install.
+
+v1.0.06
+- Adds attribution to Indigo log when the plugin is initialized.
+
 v1.0.05
 - Code consolidation using DLFramework.
 - Adds note to documentation that the plugin requires Internet access to function.

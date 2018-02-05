@@ -47,7 +47,7 @@ __copyright__ = Dave.__copyright__
 __license__   = Dave.__license__
 __build__     = Dave.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.0.06'
+__version__   = '1.0.07'
 
 # =============================================================================
 
@@ -69,7 +69,7 @@ class Plugin(indigo.PluginBase):
         
         self.debug                = self.pluginPrefs.get('showDebugInfo', False)
         self.debugLevel           = int(self.pluginPrefs.get('showDebugLevel', "1"))
-        updater_url               = 'https://davel17.github.io/WUnderstation/wunderstation_version.html'
+        updater_url               = 'https://raw.githubusercontent.com/DaveL17/WUnderstation/master/wunderstation_version.html'
         self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
         self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
         self.updaterEmailsEnabled = self.pluginPrefs.get('updaterEmailsEnabled', "false")
