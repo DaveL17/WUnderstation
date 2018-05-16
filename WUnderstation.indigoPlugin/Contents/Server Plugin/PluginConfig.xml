@@ -38,192 +38,192 @@
 
     <Field id="separator03" type="separator"/>
 
-    <Field id="space06" type="checkbox">
+    <Field id="space006" type="checkbox">
         <Label>Display Weather Settings:</Label>
         <Description/>
     </Field>
 
     <!-- * for extra outdoor sensors use temp2f, temp3f, and so on -->
-    <Field id="tempf1" type="menu" defaultValue="None" visibleBindingId="space06"  visibleBindingValue="true" tooltip="[F outdoor temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="tempf1" type="menu" defaultValue="None" visibleBindingId="space006"  visibleBindingValue="true" tooltip="[F outdoor temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Outdoor Temperature 1 (F)</Label>
     </Field>
 
-    <Field id="tempf2" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F outdoor temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="tempf2" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F outdoor temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Outdoor Temperature 2 (F)</Label>
     </Field>
 
-    <Field id="tempf3" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F outdoor temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="tempf3" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F outdoor temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Outdoor Temperature 3 (F)</Label>
     </Field>
 
-    <Field id="tempf4" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F outdoor temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="tempf4" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F outdoor temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Outdoor Temperature 4 (F)</Label>
     </Field>
 
-    <Field id="indoortempf" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F indoor temperature F]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="indoortempf" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F indoor temperature F]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Indoor Temperature (F)</Label>
     </Field>
 
-    <Field id="humidity" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent outdoor humidity 0-100%]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="humidity" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent outdoor humidity 0-100%]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Outdoor Humidity (0% - 100%)</Label>
     </Field>
 
-    <Field id="indoorhumidity" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent indoor humidity 0-100]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="indoorhumidity" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent indoor humidity 0-100]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Indoor Humidity (0% - 100%)</Label>
     </Field>
 
-    <Field id="baromin" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[barometric pressure inches]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="baromin" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[barometric pressure inches]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Barometric Pressure (Inches)</Label>
     </Field>
 
-    <Field id="dewptf" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F outdoor dewpoint F]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="dewptf" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F outdoor dewpoint F]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Dewpoint (F)</Label>
     </Field>
 
-    <Field id="rainin" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[rain inches over the past hour]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="rainin" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[rain inches over the past hour]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Rain Last Hour (Inches)</Label>
     </Field>
 
-    <Field id="dailyrainin" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[rain inches so far today in local time]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="dailyrainin" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[rain inches so far today in local time]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Rain Today (Inches)</Label>
     </Field>
 
-    <Field id="separator04" type="separator" visibleBindingId="space06" visibleBindingValue="true"/>
+    <Field id="separator04" type="separator" visibleBindingId="space006" visibleBindingValue="true"/>
 
     <!-- * for sensors 2,3,4 use soiltemp2f, soiltemp3f, and soiltemp4f -->
-    <Field id="soiltempf1" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F soil temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soiltempf1" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F soil temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Temperature 1 (F)</Label>
     </Field>
 
-    <Field id="soiltempf2" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F soil temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soiltempf2" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F soil temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Temperature 2 (F)</Label>
     </Field>
 
-    <Field id="soiltempf3" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F soil temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soiltempf3" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F soil temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Temperature 3 (F)</Label>
     </Field>
 
-    <Field id="soiltempf4" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[F soil temperature]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soiltempf4" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[F soil temperature]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Temperature 4 (F)</Label>
     </Field>
 
     <!-- * for sensors 2,3,4 use soilmoisture2, soilmoisture3, and soilmoisture4 -->
-    <Field id="soilmoisture1" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soilmoisture1" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Moisture 1 (0% - 100%)</Label>
     </Field>
 
-    <Field id="soilmoisture2" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soilmoisture2" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Moisture 2 (0% - 100%)</Label>
     </Field>
 
-    <Field id="soilmoisture3" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soilmoisture3" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Moisture 3 (0% - 100%)</Label>
     </Field>
 
-    <Field id="soilmoisture4" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="soilmoisture4" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Soil Moisture 4 (0% - 100%)</Label>
     </Field>
 
     <!-- + for sensor 2 use leafwetness2 -->
-    <Field id="leafwetness1" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="leafwetness1" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Leaf Wetness 1 (0% - 100%)</Label>
     </Field>
 
-    <Field id="leafwetness2" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Percent]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="leafwetness2" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Percent]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Leaf Wetness 2 (0% - 100%)</Label>
     </Field>
 
-    <Field id="separator05" type="separator" visibleBindingId="space06" visibleBindingValue="true"/>
+    <Field id="separator05" type="separator" visibleBindingId="space006" visibleBindingValue="true"/>
 
-    <Field id="weather" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[metar style (+RA)]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="weather" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[metar style (+RA)]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Weather (Text)</Label>
     </Field>
 
-    <Field id="clouds" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Text - SKC, FEW, SCT, BKN, OVC]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="clouds" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Text - SKC, FEW, SCT, BKN, OVC]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Clouds (Text)</Label>
     </Field>
 
-    <Field id="solarradiation" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[W/m^2]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="solarradiation" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[W/m^2]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Solar Radiation</Label>
     </Field>
 
-    <Field id="UV" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[Index]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="UV" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[Index]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>UV (Index)</Label>
     </Field>
 
-    <Field id="visibility" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[nautical miles visibility]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="visibility" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[nautical miles visibility]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Visibility (Nautical Miles)</Label>
     </Field>
 
-    <Field id="separator07" type="separator" visibleBindingId="space06" visibleBindingValue="true"/>
+    <Field id="separator07" type="separator" visibleBindingId="space006" visibleBindingValue="true"/>
 
-    <Field id="windspeedmph" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[mph instantaneous wind speed]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windspeedmph" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[mph instantaneous wind speed]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Speed (MPH)</Label>
     </Field>
 
-    <Field id="winddir" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[0-360 instantaneous wind direction]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="winddir" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[0-360 instantaneous wind direction]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Direction (0-360)</Label>
     </Field>
 
-    <Field id="windgustmph" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[mph current wind gust, using software specific time period]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windgustmph" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[mph current wind gust, using software specific time period]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Gust Speed (MPH)</Label>
     </Field>
 
-    <Field id="windgustdir" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[0-360 using software specific time period]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windgustdir" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[0-360 using software specific time period]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Gust Direction (0-360)</Label>
     </Field>
 
-    <Field id="windspdmph_avg2m" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[mph 2 minute average wind speed mph]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windspdmph_avg2m" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[mph 2 minute average wind speed mph]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Speed (MPH/Avg. 2 min.)</Label>
     </Field>
 
-    <Field id="winddir_avg2m" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[0-360 2 minute average wind direction]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="winddir_avg2m" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[0-360 2 minute average wind direction]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Direction (0-360/Avg. 2 min.)</Label>
     </Field>
 
-    <Field id="windgustmph_10m" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[mph past 10 minutes wind gust mph]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windgustmph_10m" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[mph past 10 minutes wind gust mph]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Gust (MPH/Avg. 10 min.)</Label>
     </Field>
 
-    <Field id="windgustdir_10m" type="menu" defaultValue="None" visibleBindingId="space06" visibleBindingValue="true" tooltip="[0-360 past 10 minutes wind gust direction]">
-        <List class="self" filter="" method="varListGenerator"/>
+    <Field id="windgustdir_10m" type="menu" defaultValue="None" visibleBindingId="space006" visibleBindingValue="true" tooltip="[0-360 past 10 minutes wind gust direction]">
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Wind Direction (0-360/Avg. 10 min.)</Label>
     </Field>
 
-    <Field id="separator08" type="separator" visibleBindingId="space06" visibleBindingValue="true"/>
+    <Field id="separator08" type="separator" visibleBindingId="space006" visibleBindingValue="true"/>
 
     <!-- Air quality measures, hidden by default. -->
     <Field id="space09" type="checkbox">
@@ -233,142 +233,106 @@
 
     <Field id="AqUV-AETH" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true"
            tooltip="UV-AETH (second channel of Aethalometer at 370 nm for aromatic organic compounds) UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Aethalometer (UG/M3)</Label>
     </Field>
 
     <Field id="AqBC" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="BC (black carbon at 880 nm) UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Carbon - Black (UG/M3)</Label>
     </Field>
 
     <Field id="AqEC" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="EC (elemental carbon) – PM2.5 UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Carbon - Elemental (UG/M3)</Label>
     </Field>
 
     <Field id="AqOC" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true"
            tooltip="OC (organic carbon, not adjusted for oxygen and hydrogen) – PM2.5 UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Carbon - Organic (UG/M3)</Label>
     </Field>
 
     <Field id="AqCO" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="CO (carbon monoxide), conventional ppm">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Carbon Monoxide (PPM)</Label>
     </Field>
 
     <Field id="AqCOT" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="CO trace levels PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Carbon Monoxide (PPB Trace)</Label>
     </Field>
 
     <Field id="AqNO" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="[ NO (nitric oxide) PPB ]">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitric Oxide (PPB)</Label>
     </Field>
 
     <Field id="AqNO2T" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="(nitrogen dioxide), true measure PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitrogen Dioxide (PPB)</Label>
     </Field>
 
     <Field id="AqNO2" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="NO2 computed, NOx-NO PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitrogen Dioxide (NOx-NO PPB)</Label>
     </Field>
 
     <Field id="AqNO2Y" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="NO2 computed, NOy-NO PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitrogen Dioxide (NOy-NO PPB)</Label>
     </Field>
 
     <Field id="AqNOX" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="NOx (nitrogen oxides) - PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitrogen Oxides (PPB)</Label>
     </Field>
 
     <Field id="AqNOY" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="NOy (total reactive nitrogen) - PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Nitrogen - Total Reactive (PPB)</Label>
     </Field>
 
     <Field id="AqNO3" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="NO3 ion (nitrate, not adjusted for ammonium ion) UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>NO3 Ion (UG/M3)</Label>
     </Field>
 
     <Field id="AqOZONE" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="Ozone - PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Ozone (PPB)</Label>
     </Field>
 
     <Field id="AqPM2.5" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="PM2.5 mass - UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>PM2.5 Mass (UG/M3)</Label>
     </Field>
 
     <Field id="AqPM10" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="PM10 mass - PM10 mass">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>PM10 Mass</Label>
     </Field>
 
     <Field id="AqSO4" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="SO4 ion (sulfate, not adjusted for ammonium ion) UG/M3">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>S04 Ion (UG/M3)</Label>
     </Field>
 
     <Field id="AqSO2" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="(sulfur dioxide), conventional PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Sulfur Dioxide (PPB)</Label>
     </Field>
 
     <Field id="AqSO2T" type="menu" defaultValue="None" visibleBindingId="space09" visibleBindingValue="true" tooltip="trace levels PPB">
-        <List class="self" filter="" method="varListGenerator"/>
+        <List class="self" filter="" method="listOfVariables"/>
         <Label>Sulfur Dioxide (PPB Trace)</Label>
     </Field>
 
     <!-- Notifications Template -->
-    <Template file="DLFramework/template_notifications.xml" />
+    <Template file="DLFramework/template_notifications.xml"/>
 
-    <Field id="showDebugSpace" type="label"/>
+    <!-- Debugging Template -->
+    <Template file="DLFramework/template_debugging.xml"/>
 
-    <Field id="showDebugLabel" type="label" alignText="Right">
-        <Label>Debug Settings</Label>
-    </Field>
-
-    <Field id="separator01" type="separator"/>
-
-    <Field id="displayDebugSettings" type="checkbox" tooltip="Show debug settings.">
-        <Label>Display Settings:</Label>
-        <Description/>
-    </Field>
-
-    <Field id="showDebugInfo" type="checkbox" tooltip="Enabling will result in verbose logging." visibleBindingId="displayDebugSettings" visibleBindingValue="true">
-        <Label/>
-        <Description>Enable/Disable</Description>
-    </Field>
-
-    <Field id="showDebugLevel" type="menu" defaultValue="1" visibleBindingId="displayDebugSettings" visibleBindingValue="true"
-           tooltip="Controls the amount of debug information written to the log.">
-        <Label>Debug level:</Label>
-        <Description>Enable/Disable</Description>
-        <List>
-            <Option value="1">Low</Option>
-            <Option value="2">Medium</Option>
-            <Option value="3">High</Option>
-        </List>
-    </Field>
-
-    <Field id="space07" type="label" visibleBindingId="displayDebugSettings" visibleBindingValue="true" fontSize="small" alignWithControl="False">
-        <Label>Turn on debugging only when needed. Be careful when posting the output to the forums or other public places as it could expose sensitive information.</Label>
-    </Field>
-
-    <Field id="space08" type="label" visibleBindingId="displayDebugSettings" visibleBindingValue="true" fontSize="mini" alignWithControl="False">
-        <Label>Low - Minimal debugging.
-Medium - All debug logging except sensitive information.
-High - May contain sensitive information.
-        </Label>
-    </Field>
 
 </PluginConfig>

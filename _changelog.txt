@@ -1,5 +1,13 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.1.01
+- Plugin now requires Indigo 7.0.
+- Increments Indigo API requirement to 2.0.
+- Improves status reporting for Indigo device health.
+- Moves communication to requests module.
+- Updates docstrings to Sphinx standard.
+- Code refinement
+
 v1.0.07
 - Updates plist link to wiki.
 - Updates plugin update checker to use curl to overcome outdated security of

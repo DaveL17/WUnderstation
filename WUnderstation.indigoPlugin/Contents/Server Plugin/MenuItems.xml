@@ -7,9 +7,4 @@
         <CallbackMethod>checkVersionNow</CallbackMethod>
     </MenuItem>
 
-    <MenuItem id="toggleDebug">
-        <Name>Toggle Debugging</Name>
-        <CallbackMethod>toggleDebugEnabled</CallbackMethod>
-    </MenuItem>
-
 </MenuItems>
