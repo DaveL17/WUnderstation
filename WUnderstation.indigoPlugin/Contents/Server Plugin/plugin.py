@@ -64,7 +64,10 @@ kDefaultPluginPrefs = {
 class Plugin(indigo.PluginBase):
     def __init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs):
         indigo.PluginBase.__init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs)
-        
+
+        self.pluginIsInitializing = True
+        self.pluginIsShuttingDown = False
+
         updater_url               = 'https://raw.githubusercontent.com/DaveL17/WUnderstation/master/wunderstation_version.html'
         self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
         self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
@@ -90,6 +93,8 @@ class Plugin(indigo.PluginBase):
         #     pydevd.settrace('localhost', port=5678, stdoutToServer=True, stderrToServer=True, suspend=False)
         # except:
         #     pass
+
+        self.pluginIsInitializing = False
 
     def __del__(self):
         indigo.PluginBase.__del__(self)
@@ -176,7 +181,7 @@ class Plugin(indigo.PluginBase):
 
     def shutdown(self):
 
-        pass
+        self.pluginIsShuttingDown = True
 
     def startup(self):
 

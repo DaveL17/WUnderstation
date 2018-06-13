@@ -1,6 +1,12 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
 v1.1.01
+- IMPORTANT: due to changes in the pricing model for the Weather Underground
+  API, development of the WUnderground plugin will cease with this release.
+
+  I will continue to provide bug fixes, but there will be no further feature
+  development.
+
 - Plugin now requires Indigo 7.0.
 - Increments Indigo API requirement to 2.0.
 - Improves status reporting for Indigo device health.

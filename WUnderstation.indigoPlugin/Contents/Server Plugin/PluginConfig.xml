@@ -334,5 +334,4 @@
     <!-- Debugging Template -->
     <Template file="DLFramework/template_debugging.xml"/>
 
-
 </PluginConfig>
