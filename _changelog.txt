@@ -1,5 +1,9 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.1.02
+- Deprecates plugin.
+- Disables plugin update notifications.
+
 v1.1.01
 - IMPORTANT: due to changes in the pricing model for the Weather Underground
   API, development of the WUnderground plugin will cease with this release.
@@ -13,11 +17,6 @@ v1.1.01
 - Moves communication to requests module.
 - Updates docstrings to Sphinx standard.
 - Code refinement
-
-v1.0.07
-- Updates plist link to wiki.
-- Updates plugin update checker to use curl to overcome outdated security of
-  Apple's Python install.
 
 v1.0.06
 - Adds attribution to Indigo log when the plugin is initialized.

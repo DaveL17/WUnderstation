@@ -329,7 +329,7 @@
     </Field>
 
     <!-- Notifications Template -->
-    <Template file="DLFramework/template_notifications.xml"/>
+<!--    <Template file="DLFramework/template_notifications.xml"/>-->
 
     <!-- Debugging Template -->
     <Template file="DLFramework/template_debugging.xml"/>

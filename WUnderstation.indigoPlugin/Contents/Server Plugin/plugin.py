@@ -15,9 +15,6 @@ API: http://wiki.wunderground.com/index.php/PWS_-_Upload_Protocol
 
 # =================================== TO DO ===================================
 
-# TODO: Consider whether it's possible to include the PWS sign-up within the plugin.
-# TODO: Enable RapidFire?
-# TODO: What Trigger, Action events (etc.) are necessary?  (i.e., upload data now, trigger to fire on some bad event, etc.)
 
 # ================================== IMPORTS ==================================
 
@@ -47,7 +44,7 @@ __copyright__ = Dave.__copyright__
 __license__   = Dave.__license__
 __build__     = Dave.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.1.01'
+__version__   = '1.1.02'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -68,11 +65,11 @@ class Plugin(indigo.PluginBase):
         self.pluginIsInitializing = True
         self.pluginIsShuttingDown = False
 
-        updater_url               = 'https://raw.githubusercontent.com/DaveL17/WUnderstation/master/wunderstation_version.html'
-        self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
-        self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
-        self.updaterEmailsEnabled = self.pluginPrefs.get('updaterEmailsEnabled', "false")
-
+        # updater_url               = 'https://raw.githubusercontent.com/DaveL17/WUnderstation/master/wunderstation_version.html'
+        # self.updater              = indigoPluginUpdateChecker.updateChecker(self, updater_url)
+        # self.updaterEmail         = self.pluginPrefs.get('updaterEmail', "")
+        # self.updaterEmailsEnabled = self.pluginPrefs.get('updaterEmailsEnabled', "false")
+        #
         self.plugin_file_handler.setFormatter(logging.Formatter('%(asctime)s.%(msecs)03d\t%(levelname)-10s\t%(name)s.%(funcName)-28s %(msg)s', datefmt='%Y-%m-%d %H:%M:%S'))
         self.debugLevel = int(self.pluginPrefs.get('showDebugLevel', '30'))
         self.indigo_log_handler.setLevel(self.debugLevel)
@@ -142,7 +139,7 @@ class Plugin(indigo.PluginBase):
 
         self.logger.debug(u"runConcurrentThread initiated.")
         self.sleep(3)
-        self.updater.checkVersionPoll()
+        # self.updater.checkVersionPoll()
 
         try:
             while True:
@@ -156,28 +153,28 @@ class Plugin(indigo.PluginBase):
         except self.StopThread:
             self.logger.debug(u"StopThread() method called.")
 
-    def validatePrefsConfigUi(self, valuesDict):
-
-        error_msg_dict = indigo.Dict()
-        update_email   = valuesDict['updaterEmail']
-        update_wanted  = valuesDict['updaterEmailsEnabled']
-
-        # Test plugin update notification settings.
-        try:
-            if update_wanted and not update_email:
-                error_msg_dict['updaterEmail']  = u"If you want to be notified of updates, you must supply an email address."
-                error_msg_dict['showAlertText'] = u"To receive an update notification, you must supply an email address."
-                return False, valuesDict, error_msg_dict
-
-            elif update_wanted and "@" not in update_email:
-                error_msg_dict['updaterEmail']  = u"Valid email addresses have at least one @ symbol in them (foo@bar.com)."
-                error_msg_dict['showAlertText'] = u"The email address that you have entered is invalid.\n\n"
-                return False, valuesDict, error_msg_dict
-
-        except Exception as error:
-            self.logger.critical(u"{0}".format(error))
-
-        return True, valuesDict
+    # def validatePrefsConfigUi(self, valuesDict):
+    #
+    #     error_msg_dict = indigo.Dict()
+    #     update_email   = valuesDict['updaterEmail']
+    #     update_wanted  = valuesDict['updaterEmailsEnabled']
+    #
+    #     # Test plugin update notification settings.
+    #     try:
+    #         if update_wanted and not update_email:
+    #             error_msg_dict['updaterEmail']  = u"If you want to be notified of updates, you must supply an email address."
+    #             error_msg_dict['showAlertText'] = u"To receive an update notification, you must supply an email address."
+    #             return False, valuesDict, error_msg_dict
+    #
+    #         elif update_wanted and "@" not in update_email:
+    #             error_msg_dict['updaterEmail']  = u"Valid email addresses have at least one @ symbol in them (foo@bar.com)."
+    #             error_msg_dict['showAlertText'] = u"The email address that you have entered is invalid.\n\n"
+    #             return False, valuesDict, error_msg_dict
+    #
+    #     except Exception as error:
+    #         self.logger.critical(u"{0}".format(error))
+    #
+    #     return True, valuesDict
 
     def shutdown(self):
 
@@ -185,11 +182,12 @@ class Plugin(indigo.PluginBase):
 
     def startup(self):
 
-        try:
-            self.updater.checkVersionPoll()
-
-        except Exception as error:
-            self.logger.critical(u"Update checker error. Error: {0}".format(error))
+        pass
+        # try:
+        #     self.updater.checkVersionPoll()
+        #
+        # except Exception as error:
+        #     self.logger.critical(u"Update checker error. Error: {0}".format(error))
 
     # =========================== WUnderstation Methods ============================
 
@@ -264,34 +262,34 @@ class Plugin(indigo.PluginBase):
 
         return val
 
-    def checkVersionNow(self):
-        """
-        Check for current version of the plugin
+    # def checkVersionNow(self):
+    #     """
+    #     Check for current version of the plugin
+    #
+    #     Called if user selects "Check For Plugin Updates..." Indigo menu item.
+    #
+    #     -----
+    #
+    #     """
+    #
+    #     self.updater.checkVersionNow()
 
-        Called if user selects "Check For Plugin Updates..." Indigo menu item.
-
-        -----
-
-        """
-
-        self.updater.checkVersionNow()
-
-    def getGlobalProps(self):
-        """
-        Assign and/or update global variables
-
-        The getGlobalProps method retrieves all pluginProps and assigns them to global
-        variables.
-
-        -----
-
-        """
-
-        # Set up global values for each device as we iterate through them (as they may
-        # have changed.)
-        self.debugLevel       = self.pluginPrefs.get('showDebugLevel', '30')
-        self.updater          = indigoPluginUpdateChecker.updateChecker(self, "http://dl.dropboxusercontent.com/u/2796881/WUnderstation_version.html")
-        self.updaterEmail     = self.pluginPrefs.get('updaterEmail', "")
+    # def getGlobalProps(self):
+    #     """
+    #     Assign and/or update global variables
+    #
+    #     The getGlobalProps method retrieves all pluginProps and assigns them to global
+    #     variables.
+    #
+    #     -----
+    #
+    #     """
+    #
+    #     # Set up global values for each device as we iterate through them (as they may
+    #     # have changed.)
+    #     self.debugLevel       = self.pluginPrefs.get('showDebugLevel', '30')
+    #     self.updater          = indigoPluginUpdateChecker.updateChecker(self, "http://dl.dropboxusercontent.com/u/2796881/WUnderstation_version.html")
+    #     self.updaterEmail     = self.pluginPrefs.get('updaterEmail', "")
 
     def listOfVariables(self, filter="", valuesDict=None, typeId=0, targetId=0):
         """
