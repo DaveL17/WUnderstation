@@ -1,4 +1,5 @@
-![WUnderstation Logo](https://github.com/DaveL17/WUnderstation/wiki/img/img_wunderstationLogo.png)
+# ![Logo](https://github.com/DaveL17/WUnderstation/wiki/img/img_wunderstationLogo.png)
+# ![shield](https://img.shields.io/github/release/DaveL17/WUnderstation.svg)
 
 **IMPORTANT: due to changes in the pricing model for the Weather Underground API, development of the WUnderstation plugin will cease with the latest release.**
 
