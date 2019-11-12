@@ -1,5 +1,8 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.1.03
+- Removes all references to legacy version checking.
+
 v1.1.02
 - Deprecates plugin.
 - Disables plugin update notifications.
