@@ -152,29 +152,6 @@ class Plugin(indigo.PluginBase):
         except self.StopThread:
             self.logger.debug(u"StopThread() method called.")
 
-    # def validatePrefsConfigUi(self, values_dict):
-    #
-    #     error_msg_dict = indigo.Dict()
-    #     update_email   = values_dict['updaterEmail']
-    #     update_wanted  = values_dict['updaterEmailsEnabled']
-    #
-    #     # Test plugin update notification settings.
-    #     try:
-    #         if update_wanted and not update_email:
-    #             error_msg_dict['updaterEmail']  = u"If you want to be notified of updates, you must supply an email address."
-    #             error_msg_dict['showAlertText'] = u"To receive an update notification, you must supply an email address."
-    #             return False, values_dict, error_msg_dict
-    #
-    #         elif update_wanted and "@" not in update_email:
-    #             error_msg_dict['updaterEmail']  = u"Valid email addresses have at least one @ symbol in them (foo@bar.com)."
-    #             error_msg_dict['showAlertText'] = u"The email address that you have entered is invalid.\n\n"
-    #             return False, values_dict, error_msg_dict
-    #
-    #     except Exception as error:
-    #         self.logger.critical(u"{0}".format(error))
-    #
-    #     return True, values_dict
-
     def shutdown(self):
 
         self.pluginIsShuttingDown = True
@@ -182,11 +159,6 @@ class Plugin(indigo.PluginBase):
     def startup(self):
 
         pass
-        # try:
-        #     self.updater.checkVersionPoll()
-        #
-        # except Exception as error:
-        #     self.logger.critical(u"Update checker error. Error: {0}".format(error))
 
     # =========================== WUnderstation Methods ============================
 
@@ -260,35 +232,6 @@ class Plugin(indigo.PluginBase):
             val = " "
 
         return val
-
-    # def checkVersionNow(self):
-    #     """
-    #     Check for current version of the plugin
-    #
-    #     Called if user selects "Check For Plugin Updates..." Indigo menu item.
-    #
-    #     -----
-    #
-    #     """
-    #
-    #     self.updater.checkVersionNow()
-
-    # def getGlobalProps(self):
-    #     """
-    #     Assign and/or update global variables
-    #
-    #     The getGlobalProps method retrieves all pluginProps and assigns them to global
-    #     variables.
-    #
-    #     -----
-    #
-    #     """
-    #
-    #     # Set up global values for each device as we iterate through them (as they may
-    #     # have changed.)
-    #     self.debugLevel       = self.pluginPrefs.get('showDebugLevel', '30')
-    #     self.updater          = indigoPluginUpdateChecker.updateChecker(self, "http://dl.dropboxusercontent.com/u/2796881/WUnderstation_version.html")
-    #     self.updaterEmail     = self.pluginPrefs.get('updaterEmail', "")
 
     def listOfVariables(self, filter="", values_dict=None, type_id=0, target_id=0):
         """
