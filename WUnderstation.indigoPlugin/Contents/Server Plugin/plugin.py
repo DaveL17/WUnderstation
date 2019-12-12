@@ -43,7 +43,7 @@ __copyright__ = Dave.__copyright__
 __license__   = Dave.__license__
 __build__     = Dave.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.1.03'
+__version__   = '1.1.04'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -97,12 +97,12 @@ class Plugin(indigo.PluginBase):
 
     # =============================== Indigo Methods ===============================
 
-    def closedPrefsConfigUi(self, valuesDict, userCancelled):
+    def closedPrefsConfigUi(self, values_dict, user_cancelled):
 
-        if userCancelled:
+        if user_cancelled:
             self.logger.debug(u"User prefs dialog cancelled.")
 
-        if not userCancelled:
+        if not user_cancelled:
             self.logger.debug(u"User prefs saved.")
             self.debugLevel = int(self.pluginPrefs.get('showDebugLevel', '30'))
             self.indigo_log_handler.setLevel(self.debugLevel)
@@ -152,28 +152,28 @@ class Plugin(indigo.PluginBase):
         except self.StopThread:
             self.logger.debug(u"StopThread() method called.")
 
-    # def validatePrefsConfigUi(self, valuesDict):
+    # def validatePrefsConfigUi(self, values_dict):
     #
     #     error_msg_dict = indigo.Dict()
-    #     update_email   = valuesDict['updaterEmail']
-    #     update_wanted  = valuesDict['updaterEmailsEnabled']
+    #     update_email   = values_dict['updaterEmail']
+    #     update_wanted  = values_dict['updaterEmailsEnabled']
     #
     #     # Test plugin update notification settings.
     #     try:
     #         if update_wanted and not update_email:
     #             error_msg_dict['updaterEmail']  = u"If you want to be notified of updates, you must supply an email address."
     #             error_msg_dict['showAlertText'] = u"To receive an update notification, you must supply an email address."
-    #             return False, valuesDict, error_msg_dict
+    #             return False, values_dict, error_msg_dict
     #
     #         elif update_wanted and "@" not in update_email:
     #             error_msg_dict['updaterEmail']  = u"Valid email addresses have at least one @ symbol in them (foo@bar.com)."
     #             error_msg_dict['showAlertText'] = u"The email address that you have entered is invalid.\n\n"
-    #             return False, valuesDict, error_msg_dict
+    #             return False, values_dict, error_msg_dict
     #
     #     except Exception as error:
     #         self.logger.critical(u"{0}".format(error))
     #
-    #     return True, valuesDict
+    #     return True, values_dict
 
     def shutdown(self):
 
@@ -290,7 +290,7 @@ class Plugin(indigo.PluginBase):
     #     self.updater          = indigoPluginUpdateChecker.updateChecker(self, "http://dl.dropboxusercontent.com/u/2796881/WUnderstation_version.html")
     #     self.updaterEmail     = self.pluginPrefs.get('updaterEmail', "")
 
-    def listOfVariables(self, filter="", valuesDict=None, typeId=0, targetId=0):
+    def listOfVariables(self, filter="", values_dict=None, type_id=0, target_id=0):
         """
         Generate a list of variables for Indigo menu controls
 

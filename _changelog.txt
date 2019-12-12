@@ -1,5 +1,8 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.1.04
+- Code refinements.
+
 v1.1.03
 - Removes all references to legacy version checking.
 
