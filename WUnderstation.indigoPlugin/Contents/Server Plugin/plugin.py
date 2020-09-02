@@ -22,6 +22,7 @@ API: http://wiki.wunderground.com/index.php/PWS_-_Upload_Protocol
 # from dateutil import parser
 import logging
 import requests
+import traceback
 
 # Third-party modules
 try:
@@ -43,7 +44,7 @@ __copyright__ = Dave.__copyright__
 __license__   = Dave.__license__
 __build__     = Dave.__build__
 __title__     = 'WUnderstation Plugin for Indigo Home Control'
-__version__   = '1.1.04'
+__version__   = '1.1.05'
 
 # Establish default plugin prefs; create them if they don't already exist.
 kDefaultPluginPrefs = {
@@ -79,7 +80,8 @@ class Plugin(indigo.PluginBase):
 
         # Weather Underground Attribution and disclaimer.
         indigo.server.log(u"{0:*^130}".format(""))
-        indigo.server.log(u"{0:*^130}".format("  Data are provided by Weather Underground, LLC. This plugin and its author are in no way affiliated with Weather Underground.  "))
+        indigo.server.log(u"{0:*^130}".format("  Data are provided by Weather Underground, LLC. This plugin and its "
+                                              "author are in no way affiliated with Weather Underground.  "))
         indigo.server.log(u"{0:*^130}".format(""))
 
         # Log pluginEnvironment information when plugin is first started
@@ -158,7 +160,8 @@ class Plugin(indigo.PluginBase):
 
     def startup(self):
 
-        pass
+        # =========================== Audit Server Version ============================
+        self.Fogbert.audit_server_version(min_ver=7)
 
     # =========================== WUnderstation Methods ============================
 
@@ -694,8 +697,9 @@ class Plugin(indigo.PluginBase):
 
             return
 
-        except Exception as error:
-            self.logger.critical(u"Unable to upload WUnderstation data. Reason: Exception - {0}".format(error))
+        except Exception:
+            self.Fogbert.pluginErrorHandler(traceback.format_exc())
+            self.logger.critical(u"Unable to upload WUnderstation data.")
 
     def webify(self, val):
         """

@@ -1,5 +1,8 @@
 WUnderstation Indigo Plugin - Developed by: DaveL17
 
+v1.1.05
+- Better integration of DLFramework.
+
 v1.1.04
 - Code refinements.
 
